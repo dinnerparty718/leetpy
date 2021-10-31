@@ -24,6 +24,7 @@ stack and heap
 
 # check type
 
+
 print(f'data types')
 print(type(6))
 print(type(5) is int)
@@ -33,8 +34,13 @@ print(type(2*5))
 print(type(2/4))
 
 print(type(0.0001))
+print(type(None))
+print(type({}))
+print(type(()))
+print(type([]))
 
 
+print("------")
 a = 5
 b = 2
 
@@ -77,9 +83,3 @@ print(myList)
 
 for item in myList:
     print(type(item) == int)
-
-
-a = 1
-
-
-print(type(a))
