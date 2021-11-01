@@ -6,6 +6,10 @@ import math
 Everything is object in python
 GC does not count weak ref
 
+naming convention
+snack_case
+can't start variable with numbers
+
 stack and heap
 
 
@@ -44,8 +48,10 @@ print("------")
 a = 5
 b = 2
 
+# wrong
+# c = math.floor(5/2)
 
-c = math.floor(5/2)
+c = 5 / 2 
 
 
 # to the power of

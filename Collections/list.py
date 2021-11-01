@@ -74,3 +74,13 @@ print(c)
 
 d = [x**2 for x in range(6, 0, -1)]
 print(d)
+
+
+# sort
+# it modify the original list
+print('list.sort()')
+a.sort()
+print(a)
+
+a.sort(reverse=True)
+print(a)
