@@ -1,16 +1,26 @@
 
 # self is similar to 'this' in java
-class Robot:
+class Robot:  # singular
+
     def introduce_self(self):
         print(f'hello my name is {self.name}')
 
-    def __init__(self, name, color, weight) -> None:
+    def __init__(self, color, weight=180, name='default Name') -> None:
         self.name = name
         self.color = color
         self.weight = weight
 
+    @classmethod
+    def speak(cls):
+        print('robot is speaking')
+
 
 class Person:
+    # Class Object Attribute
+    # value does not change
+    # Person.membership
+    membership = True
+
     def __init__(self, name, personality, isSitting) -> None:
         self.name = name
         self.personality = personality
@@ -33,7 +43,15 @@ def main():
     p1.robot_owned = r2
     p2.robot_owned = r1
 
+    print(Person.membership)
+
     print(p1.robot_owned.introduce_self())
+
+    r3 = Robot('red')
+    print(r3.name, r3.color, end=" ")
+    print('haha')
+
+    Robot.speak()
 
 
 if __name__ == '__main__':
