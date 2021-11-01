@@ -1,3 +1,40 @@
+'''
+encapsulation
+    Encapsulation can be viewed as a shield that protects data from getting accessed by outside code. 
+    In essence, Encapsulation binds data and code as a single unit and enforces modularity. 
+
+
+
+
+abstraction
+    detail of implementation of hidden away from the user
+    only essentail things are displayed to the user
+
+    abstract away things user does not need to know
+    user do not care about implementation
+    just need to access it and use it
+    protecting using private variables, only convention
+        _name
+        _age
+        shouldn't be modified, no garantee
+
+inheritance
+    abstract away things that are shared
+    changing things according to what each one need
+
+    Inheritance ensures that codes are reused
+    A parent class can share its attributes with a child class
+
+    to check isinstance
+
+polymorphism
+    many forms
+    subclasses can share method name but have different implementation base on Attribute
+
+    issubclass(list, object)
+
+'''
+
 
 # self is similar to 'this' in java
 class Robot:  # singular
@@ -6,13 +43,18 @@ class Robot:  # singular
         print(f'hello my name is {self.name}')
 
     def __init__(self, color, weight=180, name='default Name') -> None:
-        self.name = name
-        self.color = color
-        self.weight = weight
+        self._name = name
+        self._color = color
+        self._weight = weight
 
     @classmethod
-    def speak(cls):
-        print('robot is speaking')
+    def duplicate(cls):
+        print('robot is duplicating')
+        return cls('yellow')
+
+    @staticmethod  # no access to cls
+    def myStatic():
+        pass
 
 
 class Person:
@@ -51,7 +93,9 @@ def main():
     print(r3.name, r3.color, end=" ")
     print('haha')
 
-    Robot.speak()
+    r4 = Robot.duplicate()
+
+    print(r4)
 
 
 if __name__ == '__main__':
