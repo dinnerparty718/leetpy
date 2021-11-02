@@ -39,5 +39,5 @@ left.right = r
 right.left = TreeNode(5)
 
 # preOrder(root)
-inOrder(root)
+# inOrder(root)
 # postOrder(root)
