@@ -101,3 +101,12 @@ print(quote.find('to')) # if == 0 start of the string
 print(quote.replace('be','me'))
 
 print(quote) # immutable
+
+
+words = quote.split(' ')
+print(words)
+
+#  The str.split() method without an argument splits on whitespace:
+
+words = "many   fancy word \nhello    \thi".split()
+print(words)

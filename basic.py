@@ -12,8 +12,12 @@ __ dendor method
 stack and heap
 
 
-'''
+file name does not collide with the standard module 
+math
+random
 
+
+'''
 
 
 # data type
@@ -52,12 +56,11 @@ b = 2
 # wrong
 # c = math.floor(5/2)
 
-c = 5 / 2 
+c = 5 / 2
 
 
 # to the power of
 d = 5**b
-
 
 
 print(d)
@@ -91,7 +94,3 @@ print(myList)
 
 for item in myList:
     print(type(item) == int)
-
-
-
-
