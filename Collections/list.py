@@ -183,3 +183,9 @@ print(basket.count('0'))
 a, b, *c, d = [1, 2, 3, 5, 4, 5]
 
 print(c)
+
+
+emptyist = None
+
+if(emptyist is None):
+    print('here')
