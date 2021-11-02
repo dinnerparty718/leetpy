@@ -32,10 +32,12 @@ root.left = left
 root.right = right
 
 l, r = TreeNode(3), TreeNode(4)
-left.right = l
+left.left = l
 left.right = r
 
 
+right.left = TreeNode(5)
+
 # preOrder(root)
-# inOrder(root)
-postOrder(root)
+inOrder(root)
+# postOrder(root)
