@@ -17,17 +17,13 @@ class Codec:
         """
 
 
-def main() -> None:
-    print('inside main fucntion')
-    root = TreeNode(4)
-    # print(t1) 
-    ste = '1,2,0|3,2,4|7,,'
+root = TreeNode(0)
 
-    a =  ste.split('|')
-    abc = [ item.split(',') for item in a ]
+left, right = TreeNode(1), TreeNode(2)
 
-    print(abc)
+root.left = left
+root.right = right
 
 
-if __name__ == '__main__':
-    main()
+print(root)
+solution = Codec()

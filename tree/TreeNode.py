@@ -9,4 +9,5 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-
+    def __str__(self) -> str:
+        return f'{self.val}'
