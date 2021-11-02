@@ -9,7 +9,7 @@ a = [1, 2, 3, 4, 'Hello']
 a.append('appended item')
 
 
-a[0]='changed'
+a[0] = 'changed'
 
 print(a)
 
@@ -110,14 +110,13 @@ a.reverse()
 print(a)
 
 
-
 # 2D array
 # useful for image reverse
 
 matrix = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
 print(matrix)
@@ -129,55 +128,58 @@ print(matrix[0][1])
 #         print(j)
 
 
-print(matrix.count([1,2,3]))
+print(matrix.count([1, 2, 3]))
 
-basket = [1,2,3,4,5]
+basket = [1, 2, 3, 4, 5]
 
-# adding 
-basket.append(9) # return type is None, not producing result
+# adding
+basket.append(9)  # return type is None, not producing result
 print(basket)
 
 
-basket.insert(9,'abc') # does not error out when index out of bound
+basket.insert(9, 'abc')  # does not error out when index out of bound
 print(basket)
 
-basket.extend((1,3,3,3))
+basket.extend((1, 3, 3, 3))
 
 print(basket)
 
 print(basket.count(3))
 
 
-
 # remove() by value
 # pop(), pop(-1) by index , pop return the removed value
-# clear() 
+# clear()
 
-basket.remove(3) # remove the first time
+basket.remove(3)  # remove the first time
 
 print(basket)
 
 print('-----------------------')
 
-c = [1,2,3,4,5]
-c.pop() # equivalent to c.pop(-1)
+c = [1, 2, 3, 4, 5]
+c.pop()  # equivalent to c.pop(-1)
 
-c.pop(0) # remove the first item
+c.pop(0)  # remove the first item
 print(c)
 
 c.clear()
 print(c)
 
 
-
 # search in the list
 
-basket = ['a','b','c','d','e']
+basket = ['a', 'b', 'c', 'd', 'e']
 print('serching')
-#print(basket.index('2')) #raise error
+# print(basket.index('2')) #raise error
 
 print('d' in basket)
 
 print(basket.count('0'))
 
 
+# list unpacking
+
+a, b, *c, d = [1, 2, 3, 5, 4, 5]
+
+print(c)
