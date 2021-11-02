@@ -1,4 +1,7 @@
-# just add some documentation
+# reasons to add typing
+# add documentation
+# linting
+# auto complete
 
 from typing import Dict, List, Set, Optional, Any, Sequence, Tuple, Callable, TypeVar
 
