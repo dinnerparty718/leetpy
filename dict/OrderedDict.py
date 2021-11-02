@@ -7,6 +7,11 @@ Ordered Dict can be used as a stack with the help of popitem function. Try imple
 
 can be implemented with HashMap + LinkedList
 
+Dicts are now ordered
+version 3.7: Dictionary order is guaranteed to be insertion order
+
+https://softwaremaniacs.org/blog/2020/02/05/dicts-ordered/en/
+
 '''
 
 from collections import OrderedDict
@@ -33,3 +38,22 @@ od['d'] = 4
 
 for key, value in od.items():
     print(key, value)
+
+
+d1 = OrderedDict()
+d2 = OrderedDict()
+
+d1['a'] = 1
+d1['b'] = 2
+
+
+d2['b'] = 2
+d2['a'] = 1
+
+
+print(d1 == d2)
+
+d2.pop('b')
+d2['b'] = 2
+
+print(d1 == d2)

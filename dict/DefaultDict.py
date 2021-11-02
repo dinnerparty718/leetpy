@@ -21,3 +21,11 @@ dDict["b"] = 2
 print(dDict["a"])
 print(dDict["b"])
 print(dDict["c"])
+print(dDict[""])
+
+
+myDefaultD = defaultdict(lambda: 'not here', {'a': 1, 'b': 2})
+
+a = myDefaultD['a']
+
+print(a)

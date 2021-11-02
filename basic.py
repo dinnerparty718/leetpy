@@ -17,6 +17,26 @@ math
 random
 
 
+python library
+
+pip install pandas
+pip uninstall
+
+each project need to be in it's own venv
+simlar to npm package vs npm global
+
+list packages installed in current evn
+
+pip list
+
+
+
+how to debug
+    use linting
+    use ied/editor
+    read errors
+    pdb -> python debugger
+
 '''
 
 
