@@ -1,6 +1,3 @@
-import math
-
-
 '''
 
 Everything is object in python
@@ -9,11 +6,15 @@ GC does not count weak ref
 naming convention
 snack_case
 can't start variable with numbers
+PI = 3.14
+__ dendor method
 
 stack and heap
 
 
 '''
+
+
 
 # data type
 # int float
@@ -55,7 +56,8 @@ c = 5 / 2
 
 
 # to the power of
-d = 5 ** b
+d = 5**b
+
 
 
 print(d)
@@ -89,3 +91,7 @@ print(myList)
 
 for item in myList:
     print(type(item) == int)
+
+
+
+
