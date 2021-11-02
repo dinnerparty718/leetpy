@@ -1,6 +1,6 @@
 # just add some documentation
 
-from typing import Dict, List, Set, Optional, Any, Sequence, Tuple, Callable
+from typing import Dict, List, Set, Optional, Any, Sequence, Tuple, Callable, TypeVar
 
 x: int = 1
 print(x)
@@ -86,3 +86,18 @@ def my_call2() -> Callable[[int, int], int]:
 def my_lambda() -> Callable[[int, int], int]:
     func: Callable[[int, int], int] = lambda x, y: x + y
     return func
+
+
+# Generic Type
+# T is place holder
+# has to be the same type
+T = TypeVar('T')
+
+
+def get_item(lst: List[T], index: int) -> T:
+    return lst[index]
+
+
+a = get_item([1, 2, 3, 4], 3)
+
+print(a)
