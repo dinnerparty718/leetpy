@@ -1,6 +1,6 @@
 from typing import List, Optional
 from TreeNode import TreeNode
-from traverse import inOrder, preOrder
+from traversal.dfs_recursion import inOrder, preOrder
 
 
 class Solution:

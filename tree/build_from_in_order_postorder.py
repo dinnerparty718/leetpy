@@ -1,5 +1,5 @@
 from typing import Optional, List
-from traverse import inOrder, postOrder
+from traversal.dfs_recursion import inOrder, postOrder
 from TreeNode import TreeNode
 
 '''
