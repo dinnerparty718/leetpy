@@ -6,6 +6,9 @@ from traversal.dfs_recursion import inOrder, preOrder
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
 
+        # to make a copy to be safe
+        preorder = preorder[:]
+
         def helper(start: int, end: int):
             if(start > end):
                 return None
@@ -32,3 +35,5 @@ result = solution.buildTree(preorder, inorder)
 
 
 preOrder(result)
+
+print(preorder)

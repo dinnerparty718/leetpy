@@ -12,11 +12,41 @@ from Tree.TreeNode import TreeNode
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return None
 
-        result = []
+        result: List[List[int]] = []
 
-        return None
+        def helper(node: TreeNode, index: int):
+            if index == len(result):
+                result.append([])
+
+            result[index].append(node.val)
+
+            if node.left:
+                helper(node.left, index + 1)
+            if node.right:
+                helper(node.right, index + 1)
+
+        helper(root, 0)
+        return result
 
 
 solution = Solution()
-result = solution.levelOrder(None)
+
+
+# root = TreeNode(3)
+
+# root.left = TreeNode(9)
+# root.right = TreeNode(20)
+
+
+# root.right.left = TreeNode(15)
+# root.right.right = TreeNode(7)
+
+
+root = TreeNode(1)
+
+result = solution.levelOrder(root)
+
+print(result)
