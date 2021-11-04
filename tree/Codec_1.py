@@ -7,11 +7,6 @@ import json
 class Codec:
 
     def serialize(self, root):
-        """Encodes a tree to a single string.
-
-        :type root: TreeNode
-        :rtype: str
-        """
 
         if root is None:
             return json.dumps([])
@@ -19,19 +14,14 @@ class Codec:
         queue = deque()
         myList = []
 
-        # index, level
-
         level = 0
         queue.append((root, 0))
 
         while queue:
-
             l = [None for i in range(2 ** level)]
-
             size = len(queue)
             for i in range(size):
                 (node, index) = queue.popleft()
-
                 l[index] = node.val
 
                 if node.left:
@@ -41,21 +31,46 @@ class Codec:
                     queue.append((node.right, 2 * index + 1))
 
             level += 1
-            myList.extend(l)
+            # myList.extend(l)
+            myList.append(l)
 
         return json.dumps(myList)
 
     def deserialize(self, data):
-        """Decodes your encoded data to tree.
 
-        :type data: str
-        :rtype: TreeNode
-        """
-        str = json.loads(data)
+        l = json.loads(data)
 
-        if str is None:
+        if l is None:
             return None
-        print(str)
+
+        n_list = l
+
+        # index = 0
+
+        # while index <= len(l) - 1:
+        #     size = 2 ** index
+        #     n_list.append(l[index:index + size])
+        #     index = index + size
+
+        def helper(level, index):
+            if level == len(n_list):
+                return None
+
+            val = n_list[level][index]
+            # print('val ' + val)
+
+            if val is None:
+                return None
+
+            node = TreeNode(val)
+
+            l_idx = 2 * index
+            r_idx = 2 * index + 1
+            node.left = helper(level+1, l_idx)
+            node.right = helper(level+1, r_idx)
+            return node
+
+        return helper(0, 0)
 
 
 root = TreeNode(1)
