@@ -83,13 +83,15 @@ root.right = right
 root.right.left, root.right.right = TreeNode(4), TreeNode(5)
 
 
+root.right.left.left, root.right.left.right = TreeNode(6), TreeNode(7)
+
 solution = Codec()
 
 str = solution.serialize(root)
 root = solution.deserialize(str)
 
 
-# print(str)
+print(str)
 
 
 # preOrder(root)
