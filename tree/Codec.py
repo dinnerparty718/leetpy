@@ -73,4 +73,4 @@ str = solution.serialize(root)
 root = solution.deserialize(str)
 
 
-postOrder(root)
+# postOrder(root)
