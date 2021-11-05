@@ -72,6 +72,14 @@ if username and password:
 a = []
 
 if a:
-    print('a is not none')
+    print('a is truthly')
 else:
-    print('a is none')
+    print('a is falsy')
+
+
+# check if a variable is None
+
+a = None
+
+if a is None:
+    print('a is None')

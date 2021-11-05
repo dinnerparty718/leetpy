@@ -1,12 +1,17 @@
-from typing import Deque
+from typing import Deque, List
 from TreeNode import TreeNode
 from collections import deque
 import json
-from traversal.dfs_recursion import preOrder
+from traversal.dfs_recursion import preOrder, postOrder
+
+
+'''
+own solution
+leetcode format
+'''
 
 
 class Codec:
-
     def serialize(self, root):
         res_list = []
         if root is None:
@@ -38,10 +43,33 @@ class Codec:
 
     def deserialize(self, data):
         obj = json.loads(data)
-        if obj is None:
+        print(obj)
+        if not obj:
             return None
 
-        print(obj)
+        n_list: List[TreeNode] = []
+
+        for val in obj:
+            if val is None:
+                n_list.append(None)
+            else:
+                n_list.append(TreeNode(val))
+
+        idx = 1
+
+        for node in n_list:
+            if idx > len(n_list) - 1:
+                break
+
+            if node:
+                node.left = n_list[idx]
+                idx += 1
+                if idx > len(n_list) - 1:
+                    break
+                node.right = n_list[idx]
+                idx += 1
+
+        return n_list[0]
 
 
 root = TreeNode(1)
@@ -64,12 +92,13 @@ root.right.left.left, root.right.left.right = TreeNode(6), TreeNode(7)
 
 solution = Codec()
 
-str = solution.serialize(root)
+str = solution.serialize(None)
 root = solution.deserialize(str)
 
 
 # print(str)
 
+# print(root)
 
 # preOrder(root)
-# postOrder(root)
+postOrder(root)
