@@ -17,7 +17,7 @@ class Solution:
             return
 
         m, n = len(rooms), len(rooms[0])
-        queue = collections.deque([])
+        queue = deque([])
 
         # left right up down
         dirs = ((-1, 0), (1, 0), (0, 1), (0, -1))
