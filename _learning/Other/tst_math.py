@@ -15,7 +15,7 @@ print(6//3)
 
 # modulo
 
-print(6%4)
+print(6 % 4)
 
 print('math functions')
 # round
@@ -32,3 +32,6 @@ print(abs(-9))
 + -
 '''
 
+# squre root without math function
+print(9 ** 0.5)  # float
+print(int(9 ** 0.5))  # int
