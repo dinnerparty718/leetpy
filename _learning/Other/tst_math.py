@@ -9,13 +9,17 @@ print(3**3)
 # divide -> float
 print(6/3)
 
-# diviate -> init
+# diviate -> int
 print(6//3)
 
 
 # modulo
 
 print(6 % 4)
+
+# modulo negative values
+
+print(-1 % 10)  # 9
 
 print('math functions')
 # round
