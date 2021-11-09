@@ -60,6 +60,7 @@ class Solution:
         return visited[node]
 
     # DFS recursively leet code solution
+    # easier to understand
     def cloneGraph3(self, node: 'Node') -> 'Node':
         if not node:
             return node
@@ -75,7 +76,7 @@ class Solution:
         return new_node
 
     # DFS recursively popular python
-
+    # helper function does not return anython
     def cloneGraph4(self, node: 'Node') -> 'Node':
         if not node:
             return node
