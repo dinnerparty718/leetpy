@@ -1,4 +1,4 @@
-from TreeNode import TreeNode
+from Tree.TreeNode import TreeNode
 
 
 def preOrder(node: TreeNode):
