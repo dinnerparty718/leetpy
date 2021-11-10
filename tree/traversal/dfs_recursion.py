@@ -36,8 +36,9 @@ left.left = l
 left.right = r
 
 
-right.left = TreeNode(5)
+left.right.left = TreeNode(5)
+left.right.right = TreeNode(6)
 
 # preOrder(root)
-# inOrder(root)
+inOrder(root)
 # postOrder(root)

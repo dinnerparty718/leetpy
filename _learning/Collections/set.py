@@ -21,3 +21,12 @@ for x in a:
 
 new_list = list(a)
 print(new_list)
+
+
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+
+z = x.intersection(y)
+
+
+print(z)

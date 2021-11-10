@@ -1,7 +1,6 @@
 from typing import Optional
 from typing import List
 
-from Tree.traversal.dfs_recursion import inOrder
 
 # Definition for a binary tree node.
 
@@ -13,18 +12,27 @@ class TreeNode:
         self.right = right
 
 
+# need to keep track of the current node
+
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return root
 
-        stack = [root]
+        curr = root
+        stack = []
         res = []
 
-        while stack:
-            n = stack.pop()
+        while curr or stack:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
 
-        pass
+            curr = stack.pop()
+            res.append(curr.val)
+            curr = curr.right
+
+        return res
 
 
 root = TreeNode(0)
@@ -38,6 +46,11 @@ left.left = l
 left.right = r
 
 
-right.left = TreeNode(5)
+left.right.left = TreeNode(5)
+left.right.right = TreeNode(6)
 
-inOrder(root)
+
+so = Solution()
+res = so.inorderTraversal(root)
+
+print(res)

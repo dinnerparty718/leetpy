@@ -29,3 +29,28 @@ myDefaultD = defaultdict(lambda: 'not here', {'a': 1, 'b': 2})
 a = myDefaultD['a']
 
 print(a)
+
+
+# count dict
+
+a = 'HelloWorld'
+
+d = {}
+
+for c in a:
+    if c not in d:
+        d[c] = 0
+    else:
+        d[c] += 1
+
+print(d)
+
+
+# with default dict
+
+d = defaultdict(int)
+
+for c in a:
+    d[c] += 1
+
+print(d)
