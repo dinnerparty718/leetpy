@@ -43,7 +43,7 @@ print(not False)
 # print([1, 2, 3] == [1, 2, 3])
 
 # is check memory location
-
+# is and is not, check whether the two operands are the exact same object.
 
 print([1, 2, 3] is [1, 2, 3])  # false
 

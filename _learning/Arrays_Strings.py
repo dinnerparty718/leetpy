@@ -78,7 +78,45 @@ print(ord('A'))
 print(ord('Z'))
 
 
-# upper case Char 65-90
+# upper case Char 97-122
 print('a - z')
 print(ord('a'))
 print(ord('z'))
+
+
+print()
+# check if a char a alphabet or number isalnum()
+print('0'.isalnum())
+
+
+print('a' < 'b')  # 'a' has a smaller Unicode value
+
+
+print('a' < 'A')
+
+
+print("ha" * 3)
+
+
+random_string = "This is a random string"
+
+
+print(random_string.index('is'))
+print(random_string.find('is'))
+print(random_string.find('is', 9))  # if not found return -1
+
+
+# print(random_string.index('is', 9))  # if not found raise exception
+
+
+# find() vs index()
+# find can only applify to string
+
+
+print('abc'.upper())
+print('ABC'.lower())
+
+
+print(len('  00  '.lstrip()))  # string left
+print(len('  00  '.rstrip()))  # string right
+print(len('  00  '.strip()))  # string right

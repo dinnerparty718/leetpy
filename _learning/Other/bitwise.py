@@ -23,5 +23,44 @@ b = int('0b101', 2)
 print(b)
 
 
-c = 4//3
-print('abc')
+# floor division
+# In floor division, the result is floored to the nearest smaller integer. It is also known as integer division.
+c = 4 // 3
+print(c)
+
+
+a = 2
+b = a << 1  # multiply by 2
+c = a >> 1  # divide by 2
+
+print(b, c)
+
+a = True
+b = True
+
+c = a ^ b
+
+
+print(c)
+
+a = True
+b = False
+
+c = a ^ b
+
+print('XOR', c)
+
+
+a = False
+b = False
+
+c = a ^ b
+
+print('XOR', c)
+
+
+a = 10
+
+print(bin(a >> 1))
+
+print(int('101', 16))

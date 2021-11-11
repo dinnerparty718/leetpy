@@ -54,6 +54,7 @@ how to debug
 # check type
 
 
+import sys
 print(f'data types')
 print(type(6))
 print(type(5) is int)
@@ -114,3 +115,43 @@ print(myList)
 
 for item in myList:
     print(type(item) == int)
+
+
+# check variable size in memory
+
+x = 0
+
+print(sys.getsizeof(x))
+
+x = 1
+print(sys.getsizeof(x))
+
+y = 1.0
+print(sys.getsizeof(y))
+
+z = True
+print(sys.getsizeof(z))
+
+
+# Empty
+# Bytes  type        scaling notes
+# 28     int + 4 bytes about every 30 powers of 2
+# 37     bytes + 1 byte per additional byte
+# 49     str + 1-4 per additional character(depending on max width)
+# 48     tuple + 8 per additional item
+# 64     list + 8 for each additional
+# 224    set         5th increases to 736
+# 21nd, 2272
+# 85th, 8416
+# 341, 32992
+# 240    dict        6th increases to 368
+# 22nd, 1184
+# 43rd, 2280
+# 86th, 4704
+# 171st, 9320
+# 136    func def does not include default args and other attrs
+# 1056 class def no slots
+# 56 class inst  has a __dict__ attr, same scaling as dict above
+# 888 class def with slots
+# 16     __slots__   seems to store in mutable tuple-like structure
+# first slot grows to 48, and so on.

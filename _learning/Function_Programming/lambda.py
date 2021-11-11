@@ -2,6 +2,9 @@
 # tradeoff
 # makes code small but less readable
 
+
+# A lambda cannot have a multi-line expression. This means that our expression needs to be something that can be written in a single line.
+
 from functools import reduce
 my_list = [1, 2, 3]
 
