@@ -60,7 +60,7 @@ class Solution2:
 
 
 # leetcode top vote python
-# difficult to understand
+# solution 3,4 similar approache work on currString until it sees a '['
 
 class Solution3:
     def decodeString(self, s: str) -> str:
@@ -85,11 +85,34 @@ class Solution3:
         return currString
 
 
-so = Solution3()
+# recursive
+class Solution4:
+    def decodeString(self, s: str) -> str:
+        def dfs(s, p):
+            res = ''
+            i, num = p, 0
+            while i < len(s):
+                if s[i].isdigit():
+                    num = num*10 + int(s[i])
+                elif s[i] == '[':
+                    local, pos = dfs(s, i+1)
+                    res += local * num
+                    i = pos
+                    num = 0
+                elif s[i] == ']':
+                    return res, i
+                else:
+                    res += s[i]
+                i += 1
+            return res, i
+        return dfs(s, 0)[0]
+
+
+so = Solution4()
 
 #s = "3[a]2[bc]"
 s = "3[a2[c]]"
-s = '100[leetcode]'
+#s = '100[leetcode]'
 res = so.decodeString(s)
 
 
