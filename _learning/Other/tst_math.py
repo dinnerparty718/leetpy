@@ -1,3 +1,10 @@
+# divmod
+
+print(divmod(126, 10))
+print(divmod(12, 10))
+print(divmod(1, 10))
+
+
 # pow of 2
 
 print(3**2)
