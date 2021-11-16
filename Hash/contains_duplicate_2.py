@@ -2,6 +2,7 @@ from typing import List
 from sortedcontainers import SortedList
 
 
+# syntax can to optimized
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         m = {}
@@ -15,6 +16,18 @@ class Solution:
                     return True
                 else:
                     m[n] = idx
+
+        return False
+
+
+class Solution2:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        m = {}
+
+        for idx, n in enumerate(nums):
+            if n in m and idx - m[n] <= k:
+                return True
+            m[n] = idx
 
         return False
 
