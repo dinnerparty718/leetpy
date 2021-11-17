@@ -9,7 +9,10 @@
       "type": "python",
       "request": "launch",
       "program": "${file}",
-      "console": "internalConsole"
+      "console": "internalConsole",
+      "env": {
+        "PYTHONPATH": "${cwd}"
+      }
     }
   ]
 }
