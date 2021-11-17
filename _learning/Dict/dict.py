@@ -1,3 +1,8 @@
+# key should be immutable and hashable
+# list can't be key since it's mutable
+# tuple can be key, tuple is mutable
+
+
 d = {}
 
 
@@ -32,3 +37,19 @@ print(d)
 pop_item = d.pop('YY')
 
 print(pop_item)
+
+
+class Node:
+    def __init__(self, val, next=None) -> None:
+        self.val = val
+        self.next = next
+
+
+n1 = Node(1)
+n2 = Node(2)
+
+
+d = {}
+
+d[n1] = 1
+d[n2] = 2

@@ -54,3 +54,11 @@ for c in a:
     d[c] += 1
 
 print(d)
+
+
+# default empty list
+
+l = defaultdict(list)
+l['a'].append('abc')
+
+print(l)
