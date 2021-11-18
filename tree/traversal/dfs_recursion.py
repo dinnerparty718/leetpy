@@ -25,20 +25,25 @@ def postOrder(node: TreeNode):
     print(node.val)
 
 
-root = TreeNode(0)
-left, right = TreeNode(1), TreeNode(2)
+def main():
+    root = TreeNode(0)
 
-root.left = left
-root.right = right
+    left, right = TreeNode(1), TreeNode(2)
 
-l, r = TreeNode(3), TreeNode(4)
-left.left = l
-left.right = r
+    root.left = left
+    root.right = right
+
+    l, r = TreeNode(3), TreeNode(4)
+    left.left = l
+    left.right = r
+
+    left.right.left = TreeNode(5)
+    left.right.right = TreeNode(6)
+
+    # preOrder(root)
+    inOrder(root)
+    # postOrder(root)
 
 
-left.right.left = TreeNode(5)
-left.right.right = TreeNode(6)
-
-# preOrder(root)
-inOrder(root)
-# postOrder(root)
+if __name__ == '__main__':
+    main()

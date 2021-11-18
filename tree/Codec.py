@@ -74,3 +74,5 @@ root = solution.deserialize(str)
 
 
 # postOrder(root)
+
+print(str)
