@@ -10,34 +10,45 @@ from utils.buildTree import build
 
 
 # inOrder traversal and make sure it's decending order
-
+# time O(n)
+# space O(n)
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        cur = []
+        prev = None
 
         def inOrder(node: TreeNode):
-            nonlocal cur
+            nonlocal prev
             if not node:
                 return True
 
-            result = True
-
-            result = result and inOrder(node.left)
-
-            if cur and cur[-1] >= node.val:
+            if inOrder(node.left) == False:
                 return False
-            cur.append(node.val)
-            result = result and inOrder(node.right)
-            return result
+
+            if prev != None and prev >= node.val:
+                return False
+            prev = node.val
+            return inOrder(node.right)
 
         return inOrder(root)
 
 
-#root = build('5,4,6,3,7')
+# solution2 upperlimit and lowerlimit
+class Solution2:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+
+        def isValid(node: TreeNode, lower_bound: int, upper_bound: int):
+            if not node:
+                return True
+            return lower_bound < node.val < upper_bound and isValid(node.left, lower_bound, node.val) and isValid(node.right, node.val, upper_bound)
+
+        return isValid(root, float('-inf'), float('inf'))
+
+
+root = build('5,4,6,3,7')
 #root = build('2,1,3')
 #root = build('5,1,4,,,3,6')
 #root = build('3,1,5,0,2,4,6')
-root = build('0,,-1')
+#root = build('0,,-1')
 so = Solution()
 
 print(so.isValidBST(root))
