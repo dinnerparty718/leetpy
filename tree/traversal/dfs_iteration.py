@@ -1,15 +1,8 @@
 from typing import Optional
 from typing import List
-
-
+from Tree.TreeNode import TreeNode
+from utils.buildTree import build
 # Definition for a binary tree node.
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 
 # need to keep track of the current node
@@ -34,23 +27,48 @@ class Solution:
 
         return res
 
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
 
-root = TreeNode(0)
-left, right = TreeNode(1), TreeNode(2)
+        if not root:
+            return
 
-root.left = left
-root.right = right
+        res = []
+        stack = [root]
 
-l, r = TreeNode(3), TreeNode(4)
-left.left = l
-left.right = r
+        while stack:
+            cur = stack.pop()
+
+            if cur:
+                res.append(cur.val)
+                stack.append(cur.right)
+                stack.append(cur.left)
+        return res
+
+# https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45785/Share-my-two-Python-iterative-solutions-post-order-and-modified-preorder-then-reverse
+
+    # two stack vs one stack (one stack must have a flag)
+    # two stack method is modified preorder travasal
+
+    # one stack  by setting a flag
+
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        res = []
+        stack = [root]
+
+        cur = root
+
+        while stack:
+            pass
+
+            # return res
 
 
-left.right.left = TreeNode(5)
-left.right.right = TreeNode(6)
+def main():
+    root = build('1,,2,3')
+    so = Solution()
+    res = so.preorderTraversal(root)
+    print(res)
 
 
-so = Solution()
-res = so.inorderTraversal(root)
-
-print(res)
+if __name__ == '__main__':
+    main()
