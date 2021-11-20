@@ -1,3 +1,4 @@
+from typing import List
 from Tree.TreeNode import TreeNode
 
 
@@ -25,23 +26,34 @@ def postOrder(node: TreeNode):
     print(node.val)
 
 
+def preOrderList(node: TreeNode, res: List[int]):
+    if not node:
+        return
+    res.append(node.val)
+    preOrderList(node.left, res)
+    preOrderList(node.right, res)
+
+
+def inOrderList(node: TreeNode, res: List[int]):
+    if not node:
+        return
+
+    inOrderList(node.left, res)
+    res.append(node.val)
+    inOrderList(node.right, res)
+
+
+def postOrderList(node: TreeNode, res: List[int]):
+    if not node:
+        return
+
+    postOrderList(node.left, res)
+    postOrderList(node.right, res)
+    res.append(node.val)
+
+
 def main():
-    root = TreeNode(0)
-
-    left, right = TreeNode(1), TreeNode(2)
-
-    root.left = left
-    root.right = right
-
-    l, r = TreeNode(3), TreeNode(4)
-    left.left = l
-    left.right = r
-
-    left.right.left = TreeNode(5)
-    left.right.right = TreeNode(6)
-
-    # preOrder(root)
-    inOrder(root)
+    pass
     # postOrder(root)
 
 
