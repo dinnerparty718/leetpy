@@ -100,27 +100,12 @@ class Solution3:
         return predecessor
 
 
-so = Solution3()
+so = Solution()
 
-# root = build('2,1,3')
-# p = root.left
 
-#root = build('5,3,6,2,4,,,1')
-#p = root.right
-
-#p = root.left.left.left
-
-# root = build('5,3,6,1,4,,,,2')
-# p = root.left.right
-
-root = build('6,2,8,0,4,7,9,,,3,5')
+root = build('6,3,7,1,5')
 p = root.left
 res = so.inorderSuccessor(root, p)
 
 
-print(res.val)
-
-
-res = so.inorderPredecessor(root, root)
-
-print(res.val)
+print(res)
