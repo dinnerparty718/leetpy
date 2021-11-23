@@ -20,11 +20,17 @@ class Solution:
 class Solution2:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         count = Counter(nums)
-
         return heapq.nlargest(k, count.keys(), key=count.get)
 
+# short one liner
 
-so = Solution2()
+
+class Solution3:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        return [key for key, _ in Counter(nums).most_common(k)]
+
+
+so = Solution3()
 
 
 nums = [3, 0, 1, 0]
