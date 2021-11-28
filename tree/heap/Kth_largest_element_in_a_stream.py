@@ -68,11 +68,32 @@ class KthLargest2:
 
         return self.q[0]
 
+# turing planet
+
+
+class KthLargest3:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.capacity = k
+        self.data = []
+        for n in nums:
+            self.add(n)
+
+    def add(self, val: int) -> int:
+        # if not eaqual becomes distinct
+        if len(self.data) < self.capacity or val >= self.data[0]:
+            heapq.heappush(self.data, val)
+
+        if len(self.data) > self.capacity:
+            heapq.heappop(self.data)
+
+        return self.data[0]
+
 
 def main():
     k = 3
     nums = [4, 5, 8, 2]
-    obj = KthLargest2(k, nums)
+    obj = KthLargest3(k, nums)
 
     print(obj.add(3))
     print(obj.add(5))

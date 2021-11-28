@@ -17,12 +17,19 @@ class Solution:
 # leetcode
 
 
-class Solution:
+class Solution2:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        return heapq.nlargest(k, nums)[-1]
+
+# turing
+
+
+class Solution3:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         return heapq.nlargest(k, nums)[-1]
 
 
-so = Solution()
+so = Solution3()
 
 
 nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
