@@ -31,10 +31,33 @@ def build(data: str) -> TreeNode:
     return ans
 
 
+# using bfs
+def findNode(root: TreeNode, val: int) -> TreeNode:
+    q = deque([root])
+
+    while q:
+
+        n = q.popleft()
+        if n.val == val:
+            return n
+
+        if n.left:
+            q.append(n.left)
+
+        if n.right:
+            q.append(n.right)
+
+    return None
+
+
 def main():
     data = '1,2,3,,,4,5,6,7,,,,,,'
     res = build(data)
-    inOrder(res)
+
+    n = findNode(res, 3)
+
+    print(n.val)
+    # inOrder(res)
 
 
 if __name__ == '__main__':

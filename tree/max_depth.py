@@ -14,41 +14,10 @@ from Tree.TreeNode import TreeNode
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
 
-        def helper(node):
-            if node is None:
-                return 0
+        l = self.maxDepth(root.left)
+        r = self.maxDepth(root.right)
 
-            left = helper(node.left)
-            right = helper(node.right)
-
-            # max()
-            return max(left, right) + 1
-
-        return helper(root)
-
-
-solution = Solution()
-
-
-root = TreeNode(1)
-
-left, right = TreeNode(2), TreeNode(3)
-
-root.left = left
-root.right = right
-root.right.left, root.right.right = TreeNode(4), TreeNode(5)
-
-root.right.left.left, root.right.left.right = TreeNode(6), TreeNode(7)
-
-root.right.left.left.left = TreeNode(8)
-
-root.right.left.left.left.left = TreeNode(10)
-
-root.right.left.right.right = TreeNode(9)
-
-
-result = solution.maxDepth(root)
-
-
-print(result)
+        return l + 1 if l > r else r + 1
