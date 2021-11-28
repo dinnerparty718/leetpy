@@ -43,3 +43,23 @@
 2d matrix matrix[i][j] -> 4 directions
 
 [[0,1],[0,-1],[1,0],[-1,0]]
+
+
+## BFS2 (Best-First Search)
+
+针对Non-uniform cost graph的一种算法 核心思想是优先展开最“优”节点 **use heap**
+
+Dijsktra's Algorithm
+
+### BFS2模板 基本与BSF相同 queue换 heap
+1. Initialize a Heap for **all starting points** , a HashSet to record visited node
+2. while heap is not empty
+   1. Poll out one node
+   2. skip it if visited
+   3. otherwise mark node as visited, update its cost
+   4. if this is the destination node, return
+   5. for all of it's neighbors, offer them in to the heap with current node's cost + edge cost
+
+Time: O((E + V)logV)
+Space: O(V)
+每个Node可以被添加进heap多次，但只能被展开一次

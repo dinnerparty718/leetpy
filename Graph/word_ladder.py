@@ -2,6 +2,7 @@ from collections import deque
 from typing import DefaultDict, List
 
 
+# time space O(m*m*n) n is the length of the word (m*m) to build the graph
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         if beginWord not in wordList:
@@ -9,10 +10,8 @@ class Solution:
         if endWord not in wordList:
             return 0
 
-        graph = self.buildGraph(wordList)
-
-        if beginWord not in graph:
-            return 0
+        wordList = list(set(wordList))
+        w_dict = self.buildDict(wordList)
 
         cnt = 1
         q = deque([beginWord])
@@ -25,34 +24,23 @@ class Solution:
                 if w == endWord:
                     return cnt
 
-                for n in graph[w]:
-                    if n not in visited:
-                        q.append(n)
-                        visited.add(n)
-
+                for i in range(len(w)):
+                    s = w[:i] + '_' + w[i+1:]
+                    for n in w_dict[s]:
+                        if n not in visited:
+                            q.append(n)
+                            visited.add(n)
             cnt += 1
 
         return 0
 
-    def containOneChange(self, w1: str, w2: str) -> bool:
-        count = 0
-        for i, c in enumerate(w1):
-            if c != w2[i]:
-                count += 1
-                if count > 1:
-                    return False
-        return count == 1
-
-    def buildGraph(self, wordList: List[str]) -> dict:
+    #  important tricks
+    def buildDict(self, wordList: List[str]) -> dict:
         d = DefaultDict(list)
-
-        for i in range(len(wordList)):
-            for j in range(i+1, len(wordList)):
-                w1 = wordList[i]
-                w2 = wordList[j]
-                if self.containOneChange(w1, w2):
-                    d[w1].append(w2)
-                    d[w2].append(w1)
+        for word in wordList:
+            for i in range(len(word)):
+                s = word[:i] + "_" + word[i+1:]
+                d[s].append(word)
 
         return d
 
