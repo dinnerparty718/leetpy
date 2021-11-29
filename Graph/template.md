@@ -63,3 +63,6 @@ Dijsktra's Algorithm
 Time: O((E + V)logV)
 Space: O(V)
 每个Node可以被添加进heap多次，但只能被展开一次
+
+#### build graph (or dict) using adjacent list
+d[src] = [dest,cost]
