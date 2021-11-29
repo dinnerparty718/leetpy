@@ -29,7 +29,9 @@
 找最短路径只适用物uniform cost （每条edge的weight一样）
 
 
+
 ### BFS模板
+
 1. Initialize a Queue for **all starting points** , a HashSet to record visited node
 2. while queue is not empty
    1. Retrieve current queue size as number of nodes in the current level
@@ -51,7 +53,7 @@
 
 Dijsktra's Algorithm
 
-### BFS2模板 基本与BSF相同 queue换 heap
+### BFS2模板 基本与BSF相同 queue 换 heap (priority queue)
 1. Initialize a Heap for **all starting points** , a HashSet to record visited node
 2. while heap is not empty
    1. Poll out one node
@@ -66,3 +68,18 @@ Space: O(V)
 
 #### build graph (or dict) using adjacent list
 d[src] = [dest,cost]
+
+
+
+## DFS (Depth-First Search)
+
+### DFS模板
+1. Initialize Hashset to record visited nodes
+2. for all entry nodes, call dfs()
+   1. validate current node , if vifsted or invalid or anwer node, return  **(2.1 and 3.1 choose one)
+   2. Do Something (Pre-order)
+   3. For each meighbor node
+      1. validate neighbor node, if visited or invalid or answer node, don't recursion on it or return answer
+      2. recurse down on neightbor node ->dfs(neighbor)
+   4. Do something (post-order)
+

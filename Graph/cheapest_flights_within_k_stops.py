@@ -3,6 +3,7 @@ from collections import defaultdict
 import heapq
 
 
+# modified Dijkstra
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         graph = defaultdict(list)
@@ -20,6 +21,7 @@ class Solution:
             if x == dst:
                 return w
 
+            # alright visit the node with less stop and cheap path
             if vis[x] >= stop:
                 continue
             vis[x] = stop
