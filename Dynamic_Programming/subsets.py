@@ -3,6 +3,7 @@ from typing import List
 
 # time O(n2)
 # backtracking
+# top down level(0)
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         self.res = []

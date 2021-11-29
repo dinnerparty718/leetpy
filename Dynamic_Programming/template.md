@@ -11,7 +11,7 @@ Search 当一个大问题是由多个子问题构成是， 我们可以通过不
 **所有DP都可以写成bottom up DFS 的形式**
 
 
-## Topdown DFS
+## Topdown DFS (tablulation)
 
 1. Define STATE of subproblems
 2. Initialize inital state
@@ -24,3 +24,25 @@ dfs(state):
    1. a update state = next_state_x
    2. branch down -> call dfs(next_state_x)
    3. **Restore State**
+
+
+## Bottom Up DFS (memoization)
+
+1. Define STATE of subproblems
+2. initialize memo to record calculated subproblem
+3. return dfs(top_level_anwer_state)
+
+
+dfs(state)
+1. Base case check
+2. if current problem is calculated, return its answer
+3. For each Subproblem X
+   1. Ask subproblem for their answers -> call dfs(subproblem_state)
+   2. build up current state problem answer base on subproblem answer
+4. Sotre current problem answer
+
+
+### for string and array 一般只有2种状态定义
+1. i = index or problem_lenght -> dp[i] 代表[0,) 的答案
+2. i,j = indexes -> dp[i][j] 代表array[i]-array[j]这段subarray的答案
+   
