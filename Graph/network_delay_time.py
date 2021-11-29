@@ -1,58 +1,16 @@
-from collections import defaultdict
-import collections
+from collections import defaultdict, deque
+
 import heapq
-from typing import DefaultDict, List
+from typing import List
+
+# https://leetcode.com/problems/network-delay-time/discuss/471164/Python-DFS-BFS-Dijkstra-Bellman-Ford-SPFA-Floyd-Warshall
+#
+# Dijkstra's Algorithm using heap
 
 
-# Dijkstra with  Dijkstra's Algorithm
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-
-        if not times:
-            return -1
-
-        self.graph = self.build_dict(times)
-        self.cost = defaultdict(int)
-
-        h = []
-
-        self.cost[k] = 0
-
-        if self.graph[k]:
-            for pair in self.graph[k]:
-                heapq.heappush(h, pair)
-
-        if not h:
-            return -1
-
-        while h:
-            cost, dest = heapq.heappop(h)
-            if dest not in self.cost:
-                self.cost[dest] = cost
-
-            if self.graph[dest]:
-                for c, d in self.graph[dest]:
-                    if d not in self.cost:
-                        heapq.heappush(h, [c + cost, d])
-
-        if len(self.cost) < n:
-            return -1
-
-        return max(self.cost.values())
-
-    def build_dict(self, times: List[List[int]]) -> dict:
-        d = DefaultDict(list)
-        for src, dest, cost in times:
-            d[src].append([cost, dest])
-
-        return d
-
-# leetcode
-
-
-class Solution2:
-    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        graph = collections.defaultdict(list)
+        graph = defaultdict(list)
 
         for u, v, w in times:
             graph[u].append((v, w))
@@ -71,8 +29,35 @@ class Solution2:
             for nei, d2 in graph[node]:
                 if nei not in dist:
                     heapq.heappush(pq, (d+d2, nei))
-
         return max(dist.values()) if len(dist) == n else -1
+
+# using queue
+
+
+# todo BFS update shortest path layer by layer
+# 1 <= k <= n <= 100
+
+class Solution2:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        graph = defaultdict(list)
+
+        # tricks to store distance in a list
+        t = [0] + [float("inf")] * n
+
+        q = deque([(0, k)])
+
+        for u, v, w in times:
+            graph[u].append((v, w))
+
+        while q:
+            time, node = q.popleft()
+            if time < t[node]:
+                t[node] = time  # store the shortest path
+                for v, w in graph[node]:
+                    q.append((time+w, v))
+
+        mx = max(t)
+        return mx if mx < float('inf') else -1
 
 
 so = Solution2()

@@ -9,7 +9,7 @@ class Solution:
         for s, d, w in flights:
             graph[s].append((d, w))
 
-        print(graph)
+        # print(graph)
         pq = [(0, src, k+1)]
 
         # store how many stop to reach each node
@@ -34,17 +34,17 @@ class Solution:
 so = Solution()
 
 
-# flights = [[0, 1, 1], [0, 2, 5], [1, 2, 1], [2, 3, 1]]
-# n = 4
-# src = 0
-# dst = 3
-# k = 1
-
-n = 3
-flights = [[0, 1, 100], [1, 2, 100], [0, 2, 500]]
+flights = [[0, 1, 1], [0, 2, 5], [1, 2, 1], [2, 3, 1]]
+n = 4
 src = 0
-dst = 2
-k = 0
+dst = 3
+k = 1
+
+# n = 3
+# flights = [[0, 1, 100], [1, 2, 100], [0, 2, 500]]
+# src = 0
+# dst = 2
+# k = 1
 
 
 res = so.findCheapestPrice(n, flights, src, dst, k)
