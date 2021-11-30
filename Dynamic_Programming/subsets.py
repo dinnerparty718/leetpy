@@ -35,9 +35,42 @@ class Solution2:
         return res
 
 
-so = Solution2()
+# call cascading
+# O(n * 2^n)
 
-nums = [1, 3, 5]
+class Solution4:
+    def subsets(self, nums):
+        res = [[]]
+        for num in sorted(nums):
+            # [1] + [2] = [1,2]
+            res += [item + [num] for item in res]
+        return res
+
+# []
+# [][1]
+# [][1][2][1,2]
+# [][1][2][1,2][3][1,3][2,3][1,2,3]    2^n = 2^3 = 8
+
+# tree by substring length 0,1,2,3   for l in range(n+1) #! important to include n
+
+
+class Solution3(object):
+    def subsets(self, nums):
+        res = []
+        self.dfs(nums, [], res)
+        return res
+
+    # nums is the remaining subset
+
+    def dfs(self, nums, path, res):
+        res.append(path)
+        for i in range(len(nums)):
+            self.dfs(nums[i+1:], path+[nums[i]], res)
+
+
+so = Solution3()
+
+nums = [1, 2, 3]
 
 res = so.subsets(nums)
 
