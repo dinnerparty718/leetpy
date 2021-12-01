@@ -32,6 +32,7 @@ class Solution2:
         for n in nums:
             for i in range(len(res)):
                 res.append(res[i]+[n])
+                # res += [res[i] + [n]]
         return res
 
 
