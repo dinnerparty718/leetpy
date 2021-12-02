@@ -13,6 +13,8 @@ class Solution:
         wordList = list(set(wordList))
         w_dict = self.buildDict(wordList)
 
+        print(w_dict)
+
         cnt = 1
         q = deque([beginWord])
         visited = set([beginWord])

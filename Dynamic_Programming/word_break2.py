@@ -1,6 +1,7 @@
 from typing import List
 
 
+# todo change memo data structure
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         wordDict = set(wordDict)
@@ -26,11 +27,15 @@ class Solution:
 
             return memo[n]
 
-        return dfs(s, len(s), wordDict, memo)
+        res = dfs(s, len(s), wordDict, memo)
+
+        print(memo)
+
+        return res
 
 
-s = "applepenapple"
-wordDict = ["apple", "pen"]
+s = "catsanddog"
+wordDict = ["cat", "cats", "and", "sand", "dog"]
 
 
 so = Solution()
