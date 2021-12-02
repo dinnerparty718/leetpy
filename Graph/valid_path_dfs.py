@@ -1,29 +1,33 @@
 from typing import List, Set
 from collections import defaultdict
-from collections import deque
 
 
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
-        seen = set([start])
-        q = deque([start])
+        seen = set()
+
         graph = defaultdict(list)
 
         for node1, node2 in edges:
             graph[node1].append(node2)
             graph[node2].append(node1)
 
-        while q:
-            n = q.popleft()
-            if n == end:
+        def dfs(edges: List[List[int]], node: int, end: int,  seen: Set) -> bool:
+            if node == end:
                 return True
+            if node in seen:
+                return False
 
-            for nei in graph[n]:
-                if nei not in seen:
-                    seen.add(nei)
-                    q.append(nei)
+            neighbors = graph[node]
 
-        return False
+            seen.add(node)
+            for nei in neighbors:
+                if dfs(edges, nei, end, seen):
+                    return True
+
+            return False
+
+        return dfs(edges, start, end, seen)
 
 
 so = Solution()
