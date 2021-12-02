@@ -5,6 +5,7 @@
 
 # todo
 # using bfs
+from collections import deque
 
 
 class Node:
@@ -17,4 +18,27 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
-        pass
+        if not root:
+            return root
+
+        q = deque([root])
+
+        while q:
+
+            size = len(q)
+
+            prev = None
+
+            for i in range(size):
+                node = q.popleft()
+
+                if prev:
+                    prev.next = node
+                prev = node
+
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+
+        return root
