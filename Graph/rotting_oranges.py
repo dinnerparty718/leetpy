@@ -29,8 +29,6 @@ class Solution:
 
         q = deque(rotten)
 
-        visited = set(rotten)
-
         minute = 0
 
         while q:
@@ -41,8 +39,8 @@ class Solution:
                 i, j = q.popleft()
 
                 for I, J in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
-                    if 0 <= I < n and 0 <= J < m and grid[I][J] == 1 and (I, J) not in visited:
-                        visited.add((I, J))
+                    if 0 <= I < n and 0 <= J < m and grid[I][J] == 1 and (I, J):
+                        grid[I][J] = 2
                         numberOfFresh -= 1
                         q.append((I, J))
 
@@ -53,7 +51,7 @@ class Solution:
 
 
 so = Solution()
-grid = [[0, 2]]
+grid = [[2, 1, 1], [0, 1, 1], [1, 0, 1]]
 
 res = so.orangesRotting(grid)
 
