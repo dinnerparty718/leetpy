@@ -30,3 +30,9 @@ str2 = '234'
 
 for d1, d2 in zip_longest(str1, str2, fillvalue='0'):
     print(d1, d2)
+
+
+hexdigits = '0123456789abcdefABCDEF'
+x = '0234A'
+if all(c in hexdigits for c in x):
+    print('all hex')
