@@ -1,8 +1,10 @@
 from typing import List
 
-
+# todo check leetcode solution
 # Time O(n)
 # space O(1) using output array
+
+
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
