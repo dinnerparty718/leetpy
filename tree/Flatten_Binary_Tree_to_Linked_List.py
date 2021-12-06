@@ -12,6 +12,37 @@ from utils.buildTree import build
 from Tree.traversal.dfs_recursion import preOrderList
 
 # todo morris traversal
+# https://leetcode.com/problems/flatten-binary-tree-to-linked-list/solution/
+
+# yass!!
+# Time O(n)
+# Space O(1)
+
+
+class Solution0:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+
+        if not root:
+            return
+
+        cur = root
+
+        while cur:
+            if not cur.left:
+                cur = cur.right
+            else:
+                pred = cur.left
+
+                while pred.right:
+                    pred = pred.right
+
+                pred.right = cur.right
+                cur.right = cur.left
+                cur.left = None
+
 
 # own use additional space
 
@@ -111,7 +142,7 @@ class Solution3:
         return rightTail if rightTail else leftTail
 
 
-so = Solution3()
+so = Solution0()
 
 root = build('1,2,5,3,4,,6')
 
