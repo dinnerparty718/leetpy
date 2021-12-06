@@ -11,8 +11,11 @@ from Tree.TreeNode import TreeNode
 from utils.buildTree import build
 from Tree.traversal.dfs_recursion import preOrderList
 
+# todo morris traversal
 
 # own use additional space
+
+
 class Solution:
     def flatten(self, root: Optional[TreeNode]) -> None:
         """
@@ -36,6 +39,9 @@ class Solution:
                 n.right = nodes[i+1]
 
 
+# own
+# time space O(n) implicit stack
+# kinda slow
 class Solution2:
     def flatten(self, root: Optional[TreeNode]) -> None:
         """
@@ -52,13 +58,19 @@ class Solution2:
             if not node.left and not node.right:
                 return node
 
+            # can be optimzied
             if not node.left and node.right:
                 return helper(node.right)
+
+            if node.left and not node.right:
+                left = helper(node.left)
+                node.right = node.left
+                node.left = None
+                return left
 
             if node.left and node.right:
                 og_right = node.right
                 right = helper(node.right)
-
                 left = helper(node.left)
 
                 node.right = node.left
@@ -72,31 +84,36 @@ class Solution2:
 
                 return right
 
-            # right_result = helper(node.right)
-            # left_result = helper(node.left)
-
-            # og_right = node.right
-
-            # if not node.left and node.right:
-            #     return right_result
-
-            # if node.left and node.right:
-            #     node.right = node.left
-            #     left_result.right = og_right
-            #     node.left = None
-            #     return right_result
-
-            # if node.left and not node.right:
-            #     node.right = node.left
-            #     node.left = None
-            #     return node.right
-
         helper(root)
 
 
-so = Solution2()
+class Solution3:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        self.flattenTree(root)
 
-root = build('1,2,,3')
+    def flattenTree(self, node: TreeNode):
+        if not node:
+            return None
+
+        # if a leaf node, simple return itself
+        if not node.left and not node.right:
+            return node
+
+        leftTail = self.flattenTree(node.left)
+        rightTail = self.flattenTree(node.right)
+
+        if leftTail:
+            leftTail.right = node.right
+            node.right = node.left
+            node.left = None
+
+        #! important
+        return rightTail if rightTail else leftTail
+
+
+so = Solution3()
+
+root = build('1,2,5,3,4,,6')
 
 
 so.flatten(root)
