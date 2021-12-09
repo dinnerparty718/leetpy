@@ -12,6 +12,9 @@ from collections import defaultdict
 # draw tree and find patterns
 # BFS, level is naturally preserve
 
+# todo
+# record min and max column index to avoid sorting
+
 
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
@@ -37,7 +40,40 @@ class Solution:
         return res
 
 
-so = Solution()
+class Solution2:
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+
+        # bfs
+
+        q = deque([(root, 0)])  # node, col_index
+        h = defaultdict(list)
+
+        min_col = float('inf')
+        max_col = float('-inf')
+
+        while q:
+            node, col_indx = q.popleft()
+
+            if node:
+                min_col = min(min_col, col_indx)
+                max_col = max(max_col, col_indx)
+
+                h[col_indx].append(node.val)
+                q.append((node.left, col_indx - 1))
+                q.append((node.right, col_indx + 1))
+
+        if min_col == float('inf'):
+            return []
+
+        res = []
+
+        for key in range(min_col, max_col+1):
+            res.append(h[key])
+
+        return res
+
+
+so = Solution2()
 
 
 root = build('3,9,20,,,15,7')
