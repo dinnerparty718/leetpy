@@ -7,7 +7,8 @@
 
 from Tree.TreeNode import TreeNode
 from utils.buildTree import build
-from Tree.traversal.dfs_recursion import postOrder
+from Tree.traversal.dfs_recursion import preOrder
+from collections import deque
 
 
 class Codec:
@@ -43,8 +44,31 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
+        if not data:
+            return
 
-        return None
+        nodes = deque(data.split(','))
+
+        # preorder
+        def dfs():
+            if not nodes:
+                return
+
+            if nodes[0] == '':
+                nodes.popleft()
+                return None
+
+            root = TreeNode(int(nodes.popleft()))
+
+            root.left = dfs()
+            root.right = dfs()
+            return root
+
+        root = dfs()
+
+        # print(nodes)
+
+        return root
 
 
 root = build('1,2,3,,,4,5')
@@ -64,3 +88,6 @@ deser = Codec()
 
 
 newroot = deser.deserialize(ans)
+
+
+preOrder(newroot)
