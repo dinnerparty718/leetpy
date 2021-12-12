@@ -7,7 +7,7 @@
 # O((T+P)2^(t + P/2)
 #
 #
-#
+# m = row
 
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
