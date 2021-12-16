@@ -1,6 +1,9 @@
 from typing import List
 
 
+# backwards bottom up
+# 向子问题要答案
+
 class Solution:
     def numDecodings(self, s: str) -> int:
         n = len(s)
@@ -41,7 +44,7 @@ class Solution:
 
 so = Solution()
 
-s = '1201234'
+s = '11106'
 res = so.numDecodings(s)
 
 print(res)
