@@ -1,3 +1,6 @@
+
+# time O(n) with memo
+# time O(2^n) without memo
 class Solution:
     def __init__(self) -> None:
         self.cache = {}
