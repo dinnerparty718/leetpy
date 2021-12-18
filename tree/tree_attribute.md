@@ -1,1 +1,1 @@
-# full binary tree with n level, total number for nodes n^2 - 1 
+# full binary tree with n level, total number for nodes n<sub>2</sub> - 1 
