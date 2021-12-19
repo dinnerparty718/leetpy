@@ -1,7 +1,7 @@
 from typing import Deque
 from Tree.TreeNode import TreeNode
 from collections import deque
-from traversal.dfs_recursion import preOrder, postOrder
+# from traversal.dfs_recursion import preOrder, postOrder
 
 
 class Codec:
@@ -17,6 +17,18 @@ class Codec:
                 q.append(node.right)
             else:
                 flat_bt.append('')
+
+    def serialize2(self, root):
+        flat_bt = []
+        q: Deque[TreeNode] = deque([root])
+        while q:
+            node = q.popleft()
+            if node:
+                flat_bt.append(str(node.val))
+                q.append(node.left)
+                q.append(node.right)
+            else:
+                flat_bt.append('null')
 
         # while flat_bt and flat_bt[-1] == '':
         #     flat_bt.pop()
@@ -49,30 +61,4 @@ class Codec:
         # space: O(n)
 
 
-root = TreeNode(1)
-
-left, right = TreeNode(2), TreeNode(3)
-
-root.left = left
-root.right = right
-
-root.right.left, root.right.right = TreeNode(4), TreeNode(5)
-
-
-root.right.left.left, root.right.left.right = TreeNode(6), TreeNode(7)
-
-# root.right.left.left.left = TreeNode(8)
-
-# root.right.left.left.left.left = TreeNode(10)
-
-# root.right.left.right.right = TreeNode(9)
-
 solution = Codec()
-
-str = solution.serialize(root)
-root = solution.deserialize(str)
-
-
-# postOrder(root)
-
-print(str)

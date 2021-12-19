@@ -1,3 +1,7 @@
+# recurrence relationship
+# use memo when possible
+
+
 # Time
 the product of recursion invocations (R) and the time complexity of calculation O(S)
 

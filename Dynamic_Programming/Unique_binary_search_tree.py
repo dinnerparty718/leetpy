@@ -1,6 +1,9 @@
 from typing import List
 
 
+# from Turing planet
+# dfs with memo
+
 class Solution:
     def numTrees(self, n: int) -> int:
 
@@ -25,7 +28,23 @@ class Solution:
         return dfs(n, memo)
 
 
-so = Solution()
+# time O(n^2)
+class Solution1:
+    def numTrees(self, n: int) -> int:
+        dp = [0] * (n+1)
+        dp[0] = 1
+        dp[1] = 1
+
+        # complexity
+        for i in range(2, n+1):
+            for j in range(1, i+1):
+                # when pick j as root
+                dp[i] += dp[j-1] * dp[i-j]
+
+        return dp[n]
+
+
+so = Solution1()
 
 
 res = so.numTrees(3)
