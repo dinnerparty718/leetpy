@@ -4,6 +4,10 @@ import math
 # from Turing planet
 # dfs with memo
 
+# https://www.youtube.com/watch?v=GgP75HAvrlY
+
+# good for generate the subtree
+
 
 class Solution:
     def numTrees(self, n: int) -> int:
@@ -21,7 +25,7 @@ class Solution:
             for i in range(1, n+1):
                 left = dfs(i-1, memo)
                 right = dfs(n-i, memo)
-                res += left * right
+                res += left * right  # cartesian product
 
             memo[n] = res
             return res
