@@ -1,8 +1,9 @@
 from typing import List
-
+import math
 
 # from Turing planet
 # dfs with memo
+
 
 class Solution:
     def numTrees(self, n: int) -> int:
@@ -44,9 +45,36 @@ class Solution1:
         return dp[n]
 
 
-so = Solution1()
+#   c(2) = C(0)C(1) + C(1,0) = 1 + 1 = 2
+#   c(3) = C(0)C(2) + C(1)C(1) + C(2)C(0) = 2 + 1 + 2 = 5
+class Solution2:
+    def numTrees(self, n: int) -> int:
+        C = [0] * (n+1)
+
+        C[0] = 1
+        C[1] = 1
+
+        for i in range(2, n+1):
+            for j in range(0, i):
+                C[i] += C[j]*C[i-j-1]
+
+        return C[n]
+
+
+so = Solution2()
 
 
 res = so.numTrees(3)
 
 print(res)
+
+
+# time O(n)
+
+
+def catalan_number(n):
+    val = math.factorial(2*n) / (math.factorial(n) * math.factorial(n+1))
+    return int(val)
+
+
+print(catalan_number(4))

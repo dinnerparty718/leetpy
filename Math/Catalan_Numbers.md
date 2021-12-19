@@ -16,4 +16,14 @@ N - north
    1. ENENENEENN   n = 5     C<sub>5</sub> = (10/5) * (1/6)
 
 
+
+[link] https://www.youtube.com/watch?v=CMaZ69P1bAc
 ## caculate n<sup>th</sup> Catalan Number
+
+1. Count No. of possible BST with n-keys
+2. coutn no. of Full Binary Tree with (n<sup>th</sup>) leaves
+
+C(0) = C(1) = 1
+
+
+C(n)  = (2n)! / n!(n+1)!
