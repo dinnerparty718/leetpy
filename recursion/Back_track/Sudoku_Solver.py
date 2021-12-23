@@ -2,8 +2,56 @@ from typing import List
 
 
 # 3 * 3
-# own
+
 class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        n = 9
+
+        def isValidMove(row: int, col: int, candidate: str):
+            # check row
+            if any(board[i][col] == candidate for i in range(9)):
+                return False
+            # check col
+
+            if any(board[row][j] == candidate for j in range(9)):
+                return False
+
+            # check block
+            br, bc = 3*(row//3), 3 * (col//3)
+
+            if any(board[i][j] == candidate for i in range(br, br+3) for j in range(bc, bc+3)):
+                return False
+
+            return True
+
+        def backtrack(i: int, j: int):
+            # Go to next empty space
+            while board[i][j] != '.':
+                if j == n-1:
+                    i = i+1
+                    j = 0
+                else:
+                    j += 1
+
+                if i == n:
+                    return True  # trick
+
+            for k in range(1, 10):
+                if isValidMove(i, j, str(k)):
+                    board[i][j] = str(k)
+                    if backtrack(i, j):
+                        return True
+            board[i][j] = '.'
+            return False
+
+        backtrack(0, 0)
+
+
+# own improved
+class Solution1:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """
         Do not return anything, modify board in-place instead.
@@ -13,12 +61,8 @@ class Solution:
 
         nums = {'1', '2', '3', '4', '5', '6', '7', '8', '9'}
 
-        def moveToNext(i: int, j: int):
-            if j == 8:
-                return (i+1, 0)
-            else:
-                return (i, j+1)
-            # return
+        # def getSubGroup(i: int, j: int):
+        #     return (i // 3) + (j // 3) * 3
 
         def getSubGroupRange(idx: int):
             if idx >= 6:
@@ -29,44 +73,34 @@ class Solution:
                 return [0, 1, 2]
 
         def backtrack(row: int, col: int):
-            nonlocal res
-            if row == n:
-                res = [row[:] for row in board]
+            while board[row][col] != '.':
+                if col == n-1:
+                    row += 1
+                    col = 0
+                else:
+                    col += 1
 
-                return
+                if row == n:
+                    return True
 
-            # print(row, col)
+            available_row = nums - set([num for num in board[row]])
+            available_col = nums - set([num[col] for num in board])
+            available_sub = nums - set([board[i][j] for i in getSubGroupRange(row)
+                                        for j in getSubGroupRange(col)])
+            candidate = list(available_row & available_col & available_sub)
 
-            nextPos = moveToNext(row, col)
+            if not candidate:
+                return False
 
-            if board[row][col] == '.':
-                available_row = nums - set([num for num in board[row]])
-                available_col = nums - set([num[col] for num in board])
+            for can in candidate:
+                board[row][col] = can
+                if backtrack(row, col):
+                    return True
 
-                available_sub = nums - set([board[i][j] for i in getSubGroupRange(row)
-                                            for j in getSubGroupRange(col)])
-                candidate = list(available_row & available_col & available_sub)
-
-                if not candidate:
-                    return False
-
-                for can in candidate:
-                    # print(can)
-                    board[row][col] = can
-                    # print(board[row])
-                    backtrack(nextPos[0], nextPos[1])
-                    board[row][col] = '.'
-
-            else:
-                backtrack(nextPos[0], nextPos[1])
-
-        res = []
+            board[row][col] = '.'
+            return False
 
         backtrack(0, 0)
-
-        for row in range(n):
-            for col in range(n):
-                board[row][col] = res[row][col]
 
 
 board = [
@@ -84,7 +118,7 @@ board = [
 ]
 
 
-so = Solution()
+so = Solution1()
 
 
 so.solveSudoku(board)
