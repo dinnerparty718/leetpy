@@ -55,5 +55,9 @@ print(sorted_set)
 
 print('\nsorted list')
 
-sorted_list = SortedList([4, 3, 2, 7, 8])
+sorted_list = SortedList([4, 3, 2, 7, 8, 8])
+print(sorted_list)
+
+
+print(sorted_list.discard(8))
 print(sorted_list)
