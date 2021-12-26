@@ -2,6 +2,11 @@ from typing import List
 import heapq
 
 
+# Time O(nlogn)
+# space O(n)
+
+# todo user binary search
+
 class Solution:
     def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
         min_heap = []
