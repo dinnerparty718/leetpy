@@ -1,54 +1,89 @@
 from typing import List
 from collections import defaultdict
 
-# build two sum hashmap, store the i,j array in the value
-
-# 2 sum N^2
-# total N^4
+# todo make recursive function for ksum
 
 
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
 
-        h_map = defaultdict(list)
-        res_s = set()
+        # def findNsum(nums, target, N, result, results):
+        #     # early termination
+        #     if len(nums) < N or N < 2 or target < nums[0]*N or target > nums[-1]*N:
+        #         return
+        #     if N == 2:  # two pointers solve sorted 2-sum problem
+        #         l, r = 0, len(nums)-1
+        #         while l < r:
+        #             s = nums[l] + nums[r]
+        #             if s == target:
+        #                 results.append(result + [nums[l], nums[r]])
+        #                 l += 1
+        #                 while l < r and nums[l] == nums[l-1]:
+        #                     l += 1
+        #             elif s < target:
+        #                 l += 1
+        #             else:
+        #                 r -= 1
+        #     else:  # recursively reduce N
+        #         for i in range(len(nums)-N+1):
+        #             if i == 0 or (i > 0 and nums[i-1] != nums[i]):
+        #                 findNsum(nums[i+1:], target-nums[i],
+        #                          N-1, result+[nums[i]], results)
+
+        # results = []
+        # findNsum(sorted(nums), target, 4, [], results)
+        # return results
+
+        nums.sort()
+        # res = set()
+
+        res = []
 
         for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                h_map[nums[i] + nums[j]].append([i, j])
+            # skip duplicate in outer loop
+            if i == 0 or nums[i] != nums[i-1]:
 
-        # for k, v in h_map.items():
-        #     print(k, '\t', v)
+                for j in range(i+1, len(nums)):
 
-        for key, value in h_map.items():
-            comple = target - key
+                    if j == i+1 or nums[j] != nums[j-1]:
 
-            if comple not in h_map:
-                continue
+                        subset = self.twoSum2(
+                            nums[j+1:], target - nums[i] - nums[j])
 
-            if comple == key:
-                if len(value) == 1:
-                    continue
+                        l = [nums[i], nums[j]]
 
-            l1 = value
+                        for pair in subset:
 
-            l2 = h_map[comple]
+                            # res.add(tuple(l + pair))
+                            res.append((l + pair))
 
-            for item1 in l1:
-                for item2 in l2:
-                    if item2[0] > item1[1]:
-                        res_s.add(
-                            tuple(sorted([nums[item1[0]], nums[item1[1]], nums[item2[0]], nums[item2[1]]])))
+        return res
 
-        return [list(item) for item in res_s]
+    def twoSum2(self, nums: List[int],  target: int):
+        l, r = 0, len(nums)-1
+
+        res = []
+
+        while l < r:
+            two_sum = nums[l] + nums[r]
+
+            if two_sum > target:
+                r -= 1
+            elif two_sum < target:
+                l += 1
+            else:
+                res.append([nums[l], nums[r]])
+                l += 1
+
+                while l < r and nums[l] == nums[l-1]:
+                    l += 1
+
+        return res
 
 
-# nums = [1, 1]
-# target = 2
+nums = [-1, 0, -5, -2, -2, -4, 0, 1, -2]
 
-
-nums = [-5, 5, 4, -3, 0, 0, 4, -2]
-target = 4
+target = -9
 
 
 so = Solution()
