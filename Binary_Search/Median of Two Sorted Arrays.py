@@ -17,11 +17,19 @@ class Solution:
             return self.findMedianSortedArrays(nums2, nums1)
 
         if x == 0:
-            return statistics.median(nums2)
+            mid = (y-1) // 2
+
+            if y % 2 == 1:
+                return nums2[mid]
+            else:
+                return (nums2[mid] + nums2[mid+1])/2
+
+            # return statistics.median(nums2)
 
         # !important low, high is the partition point, not index
         low, high = 0, x
 
+        # need to find that exacpt partition point
         while low <= high:
 
             partition_x = (low + high) // 2
@@ -43,7 +51,7 @@ class Solution:
                 else:
                     return max(maxLeftX, maxLeftY)
             elif maxLeftX > minRightY:
-                high = partition_x-1
+                high = partition_x - 1
             else:
                 low = partition_x + 1
 
