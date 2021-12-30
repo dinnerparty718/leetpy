@@ -4,3 +4,6 @@
 
 array value 0-9
 array index 0-9
+
+
+# optimization, path compaction using recursion and rank!
