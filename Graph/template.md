@@ -76,9 +76,9 @@ d[src] = [dest,cost]
 ### DFS模板
 1. Initialize Hashset to record visited nodes
 2. for all entry nodes, call dfs()
-   1. validate current node , if vifsted or invalid or anwer node, return  **(2.1 and 3.1 choose one)
+   1. validate current node , if visited or invalid or anwer node, return  **(2.1 and 3.1 choose one)
    2. Do Something (Pre-order)
-   3. For each meighbor node
+   3. For each neighbor node
       1. validate neighbor node, if visited or invalid or answer node, don't recursion on it or return answer
       2. recurse down on neightbor node ->dfs(neighbor)
    4. Do something (post-order)

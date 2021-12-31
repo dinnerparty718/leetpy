@@ -18,23 +18,22 @@ class Solution:
         if not node:
             return node
 
-        def dfs(node: 'Node', visited: dict) -> 'Node':
+        def dfs(node: 'Node') -> 'Node':
 
             if not node:
                 return node
 
-            if visited[node]:
+            if node in visited:
                 return visited[node]
 
             visited[node] = Node(node.val)
 
             for nei in node.neighbors:
-                if nei not in visited:
-                    visited[node].neighbors.append(dfs(nei, visited))
+                visited[node].neighbors.append(dfs(nei))
 
             return visited[node]
 
-        dfs(node, visited)
+        dfs(node)
 
         return visited[node]
 

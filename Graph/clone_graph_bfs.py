@@ -30,7 +30,8 @@ class Solution:
                     visited[nei] = Node(nei.val, [])
                     q.append(nei)
 
-                visited[n].neighbors.append(nei)
+#                visited[n].neighbors.append(nei) #! wrong here
+                visited[n].neighbors.append(visited[nei])
 
         return visited[node]
 
