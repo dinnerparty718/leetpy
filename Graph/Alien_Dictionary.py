@@ -26,6 +26,8 @@ class Solution:
             else:
                 reverse_adj_list[cur[j]].append(prev[i])
 
+        print(reverse_adj_list)
+
         # Step 1: Find all edges and put them in reverse_adj_list.
         # for first_word, second_word in zip(words, words[1:]):
         #     for c, d in zip(first_word, second_word):
@@ -38,7 +40,7 @@ class Solution:
 
         # {'w': [], 'r': ['e'], 't': ['r'], 'f': ['t'], 'e': ['w']}
 
-         # Step 2: Depth-first search.
+        # Step 2: Depth-first search.
         seen = {}  # False = grey, True = black.  white = not in seen
         output = []
 
@@ -68,6 +70,8 @@ class Solution:
 so = Solution()
 words = ["wrt", "wrf", "er", "ett", "rftt"]
 #words = ["abc", "ab"]
+
+#words = ["wrt", "wrtkj"]
 
 res = so.alienOrder(words)
 
