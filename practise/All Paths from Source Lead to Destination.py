@@ -5,34 +5,45 @@ from typing import List
 from collections import defaultdict
 
 
-# !important, to detect cycle use coloring technique
+#! to detect cycle use coloring technique in DFS in [directed] graph
+#! white, grey, black None, 1, 2
 
 class Solution:
     def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+
+        GRAY = 1
+        BLACK = 2
+
         graph = defaultdict(list)
 
+        # one direction
         for s, t in edges:
             graph[s].append(t)
 
-        def dfs(node: int):
-            if node == destination:
+        # list with node and their states
+        visited = [None] * n
+
+        def dfs(start: int):
+            # base case
+            if visited[start] == GRAY:
+                return False
+            elif visited[start] == BLACK:
                 return True
 
-            if node != destination and node not in graph:
-                return False
+            # if visited[start] != None:
+            #     return visited[start] == BLACK
 
-            visited = set()
+            # if this is a leave node,check if it's the destination
+            if start not in graph:
+                return start == destination
 
-            visited.add(node)
+            visited[start] = GRAY
 
-            for nei in graph[node]:
-                visited.add(nei)
-                result = dfs(nei)
-                if result:
-                    visited.remove(nei)
-                else:
+            for nei in graph[start]:
+                if not dfs(nei):
                     return False
 
+            visited[start] = BLACK
             return True
 
         return dfs(source)

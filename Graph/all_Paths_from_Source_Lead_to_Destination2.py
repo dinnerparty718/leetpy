@@ -4,6 +4,7 @@ from collections import defaultdict
 
 # ! how to detect a cycle in the graph, visited list not enough, need to record the vertex
 
+# result wrong ha!
 class Solution:
 
     def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
@@ -35,12 +36,18 @@ class Solution:
 
 so = Solution()
 
-edges = [[0, 1], [0, 2], [0, 3], [0, 3], [1, 2],
-         [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
-n = 5
+# edges = [[0, 1], [0, 2], [0, 3], [0, 3], [1, 2],
+#          [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+# n = 5
 
+# source = 0
+# destination = 4
+
+
+n = 4
+edges = [[0, 1], [0, 3], [1, 2], [2, 1]]
 source = 0
-destination = 4
+destination = 3
 
 
 res = so.leadsToDestination(n, edges, source, destination)
