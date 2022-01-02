@@ -53,3 +53,14 @@ d = {}
 
 d[n1] = 1
 d[n2] = 2
+
+
+# merge dic
+
+d1 = {'name': 'yy', 'age': 2}
+d2 = {'gender': 'f'}
+
+
+d3 = {**d1, **d2}
+
+print(d3)

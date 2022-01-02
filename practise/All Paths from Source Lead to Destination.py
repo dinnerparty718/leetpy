@@ -4,9 +4,10 @@ from typing import List
 # could end up in node that is not the destination
 from collections import defaultdict
 
-
+#! given a source and destination
 #! to detect cycle use coloring technique in DFS in [directed] graph
 #! white, grey, black None, 1, 2
+
 
 class Solution:
     def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
