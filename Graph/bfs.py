@@ -37,6 +37,7 @@ class Solution:
 
         return level
 
+    #! add a list [] to the queue
     def shortestPath_path(self, edges: List[List[str]], source: str, target: str) -> List[str]:
         graph = defaultdict(list)
         q = deque([[source]])
@@ -56,6 +57,8 @@ class Solution:
                     new_path = path[:]
                     new_path.append(nei)
                     q.append(new_path)
+
+                    # append two list   path + [nei]
 
             visited.add(path[-1])
 

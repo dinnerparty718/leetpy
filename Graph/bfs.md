@@ -1,6 +1,9 @@
 # BFS
 
-## best for find shortest path (unweighted)
+## use case
+1. Treverse all vertices in a graph
+2. best for find shortest path (unweighted or possitive)
+   
 
 todo how to reconstruct the shortest path
 
