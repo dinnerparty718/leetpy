@@ -48,3 +48,11 @@ SPFA algorithm (shortest path faster algorithm)
 U -> V 
 
 dU + W(U,V) < dV
+
+
+## two array techqniue, no swapping, just use the 1 and 0 tricks
+
+0&1 = 0
+1&1 = 1
+2&1 = 0
+3&1 = 1
