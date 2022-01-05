@@ -72,6 +72,27 @@ class Solution:
         return -1 if price_table[dst] == float('inf') else price_table[dst]
 
 
+# from leetcode explore card
+# much better
+class Solution:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], s: int, dst: int, k: int) -> int:
+        if s == dst:
+            return 0
+
+        previous = [float('inf')] * n
+        current = [float('inf')] * n
+
+        previous[s] = current[s] = 0
+
+        for i in range(k+1):
+            for src, des, cost in flights:
+                current[des] = min(previous[src] + cost, current[des])
+
+            previous = current[:]
+
+        return -1 if current[dst] == float('inf') else current[dst]
+
+
 n = 3
 flights = [[0, 1, 100], [1, 2, 100], [0, 2, 500]]
 src = 0

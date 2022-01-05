@@ -38,6 +38,11 @@ SPFA algorithm (shortest path faster algorithm)
 - stoping criteria queue is empty
 
 
+Bellman-Ford standard VS SPFA
+   SPFA can't guarantee at most k edges
+
+
+
 ### Comparison
 - both use relaxing strategy
   - Dijkastra : greedy 
@@ -56,3 +61,5 @@ dU + W(U,V) < dV
 1&1 = 1
 2&1 = 0
 3&1 = 1
+
+## or using prev current
