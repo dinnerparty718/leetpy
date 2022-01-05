@@ -1,51 +1,49 @@
 from typing import List
-from collections import defaultdict
+import heapq
+
+# Dijkstra
+
+# Time O(m*nlogm*n)  m*n number of nodes
+# space O(m*n)
 
 
-# native bfs or bellman ford
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
         m = len(heights)
         n = len(heights[0])
-        edges = []
+
+        visited = [[False] * n for i in range(m)]
+        differences = [[float('inf')] * n for i in range(m)]
+
+        differences[0][0] = 0
+
+        pq = [(0, 0, 0)]  # efforts, i,j
 
         def neighbors(i: int, j: int):
             for I, J in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
-                if 0 <= I < m and 0 <= J < n:
+                if 0 <= I < m and 0 <= J < n and not visited[I][J]:
                     yield (I, J)
 
-        for i in range(m):
-            for j in range(n):
-                for I, J in neighbors(i, j):
-                    diff = abs(heights[I][J] - heights[i][j])
-                    edges.append([(i, j), (I, J), diff])
+        while pq:
+            diff, i, j = heapq.heappop(pq)
+            visited[i][j] = True
 
-        # for s, t, cost in g:
-        #     print(s, t, cost)
+            for I, J in neighbors(i, j):
+                cur_diff = abs(heights[i][j] - heights[I][J])
+                max_diff = max(cur_diff, differences[i][j])
 
-        prev = [[float('inf')] * n for _ in range(m)]
+                if differences[I][J] > max_diff:
+                    differences[I][J] = max_diff
+                    heapq.heappush(pq, (max_diff, I, J))
 
-        cur = [[float('inf')] * n for _ in range(m)]
-
-        prev[0][0] = cur[0][0] = 0
-
-        for i in range(m*n - 1):
-            for src, target, cost in edges:
-
-                cur[target[0]][target[1]] = min(
-                    cur[target[0]][target[1]], max(prev[src[0]][src[1]], cost))
-
-                # prev[src[0]][src[1]], cost
-
-            prev = [row[:] for row in cur]
-
-        return cur[m-1][n-1]
+        return differences[m-1][n-1]
 
 
 so = Solution()
 
-heights = [[1, 2, 3], [3, 8, 4], [5, 3, 5]]
 #heights = [[1, 2, 3], [3, 8, 4], [5, 3, 5]]
+heights = [[1, 2, 3], [3, 8, 4], [5, 3, 5]]
+#heights = [[1, 2, 2], [3, 8, 2], [5, 3, 5]]
 
 res = so.minimumEffortPath(heights)
 
