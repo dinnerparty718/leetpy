@@ -14,17 +14,18 @@ class Solution:
         pq = [(0, src, k+1)]
 
         # store how many stop to reach each node
-        vis = [0] * n
+        visited = [0] * n
         while pq:
             w, x, stop = heapq.heappop(pq)
 
             if x == dst:
                 return w
 
-            # alright visit the node with less stop and cheap path
-            if vis[x] >= stop:
+            # already visit the node with less stop and cheap path
+            # or stop is negative, k stops are exausted, no need to explore next stop
+            if visited[x] >= stop:
                 continue
-            vis[x] = stop
+            visited[x] = stop
 
             if x in graph:
                 for nei, new_cost in graph[x]:

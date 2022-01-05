@@ -1,4 +1,4 @@
-1. Dijkstra Algorithem
+### Dijkstra Algorithem
    - only for posiive edges
    - greedy
 
@@ -24,6 +24,27 @@ algo: (best first search)
      - if not yet done, put edegs in the queue (d+d2,nei, cur)
 
 
-4. Bellman-Ford algorithm
+### Bellman-Ford algorithm
    - Both positive and negative edges
-   
+   - shortest path is at most N-1
+   - acyclic graph + positive cycle, there is a shortest path
+   - negative cycle there is no shortest path
+
+
+at most N-1 iteration of 0,1,2,3,4   
+order of the edges matter
+
+SPFA algorithm (shortest path faster algorithm)
+- stoping criteria queue is empty
+
+
+### Comparison
+- both use relaxing strategy
+  - Dijkastra : greedy 
+  - Bellman-Ford:  each node relax V-1 times at most
+
+
+
+U -> V 
+
+dU + W(U,V) < dV
