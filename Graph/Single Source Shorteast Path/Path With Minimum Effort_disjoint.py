@@ -1,7 +1,9 @@
 from typing import List
-import heapq
 
 # Union Find
+# map 2D array to 1D array for union find
+# i,j -> i*n + j
+# currentRow * Cols + currentCol
 
 
 class UnionFind:
