@@ -30,6 +30,7 @@ class Solution:
 
             for I, J in neighbors(i, j):
                 cur_diff = abs(heights[i][j] - heights[I][J])
+                # modification of sum path
                 max_diff = max(cur_diff, differences[i][j])
 
                 if differences[I][J] > max_diff:
