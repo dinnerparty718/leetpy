@@ -36,3 +36,16 @@ class Solution:
 
 
 # iterative
+class Solution:
+    def preorder(self, root: 'Node') -> List[int]:
+        if not root:
+            return []
+        res = []
+
+        s = [root]
+
+        while s:
+            root = s.pop()
+            res.append(root.val)
+            s.extend(root.children)
+        return res
