@@ -9,6 +9,7 @@ class Node:
 
 from typing import List
 from collections import deque
+from naryTree import sample_NaryTree
 
 
 class Node:
@@ -42,3 +43,13 @@ class Solution:
             res.append(cur)
 
         return res
+
+
+root = sample_NaryTree()
+
+
+so = Solution()
+
+res = so.levelOrder(root)
+
+# print(res)
