@@ -24,3 +24,16 @@ That's all one needs to solve the initial problem:
 - Convert all numbers to the binary form.
 - Add the numbers into Trie one by one and compute the maximum XOR of a number to add with all previously inserted. Update maximum XOR at each step.
 - Return max_xor.
+
+
+
+
+## example
+
+
+1. Autocomplete
+2. spell checker (add and serach word, wordDictionary)
+3. Accelerate DFS. terminate early ?
+4. Store other Data type
+   1. max XOR 1,0
+   2. IP routing longest prefix matching
