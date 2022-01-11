@@ -6,3 +6,21 @@
 
 # Time O(N)
 # Space O(M*N*K)  k = 26
+
+
+
+find max xor, exclusive or
+
+
+## Algorithm
+
+To summarise, now one could
+
+- Insert a number into Bitwise Trie.
+- Find maximum XOR of a given number with all numbers that have been inserted so far.
+
+That's all one needs to solve the initial problem:
+
+- Convert all numbers to the binary form.
+- Add the numbers into Trie one by one and compute the maximum XOR of a number to add with all previously inserted. Update maximum XOR at each step.
+- Return max_xor.
