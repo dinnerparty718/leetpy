@@ -37,3 +37,13 @@ That's all one needs to solve the initial problem:
 4. Store other Data type
    1. max XOR 1,0
    2. IP routing longest prefix matching
+
+
+
+
+## tricks
+
+
+use dict directly
+
+use node['#'] to store additional info eg. word itself, for word index
