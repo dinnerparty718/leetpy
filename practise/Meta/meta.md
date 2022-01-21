@@ -25,3 +25,28 @@ Hobbies, frame them to help you
 Big(O)
     draw recursion tree
     specified what is M, N, A, B
+
+
+
+
+What does servers do?
+    pre-computation
+    cache
+
+Bottom up works better than top down
+
+
+TESTING
+    FIRST:analyze
+    THEN use test cases, small test cases, edge cases bigger cases
+    BUT
+        test code , no algorithm
+        think before you fix
+
+
+Be Prepared with Questions
+    Passion
+    knowldege
+    Interest
+    Communication
+    Curiosity
