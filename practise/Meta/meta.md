@@ -1,6 +1,6 @@
 [link] https://www.facebook.com/careers/life/sample_interview_questions
 [link] https://www.educative.io/courses/coderust-hacking-the-coding-interview
-
+[link] https://www.facebookcareers.com/life/preparing-for-your-software-engineering-interview-at-facebook/
 
 Two minit pitch
 
