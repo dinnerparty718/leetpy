@@ -1,6 +1,5 @@
 # Definition for singly-linked list.
 from lib2to3.pytree import Node
-from re import L
 from typing import Optional
 
 

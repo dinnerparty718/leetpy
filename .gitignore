@@ -140,3 +140,6 @@ cython_debug/
 
 
 docker-containers/cassandra/data
+
+*.DS_Store
+*/.DS_Store
