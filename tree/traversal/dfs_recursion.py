@@ -1,5 +1,5 @@
 from typing import List
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 
 
 def preOrder(node: TreeNode):

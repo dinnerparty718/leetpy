@@ -1,6 +1,6 @@
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from collections import deque
-from Tree.traversal.dfs_recursion import inOrder
+from tree.traversal.dfs_recursion import inOrder
 
 
 def build(data: str) -> TreeNode:
