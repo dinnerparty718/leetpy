@@ -1,6 +1,6 @@
 from typing import List
 from traversal.dfs_recursion import preOrder, postOrder
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 
 
 class Codec:
