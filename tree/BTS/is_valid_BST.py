@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 from typing import Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build
 
 
