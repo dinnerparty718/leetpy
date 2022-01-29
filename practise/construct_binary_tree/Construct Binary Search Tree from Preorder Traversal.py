@@ -116,6 +116,14 @@ class Solution:
         return helper(float('-inf'), float('inf'))
 
 
+# https://leetcode.com/problems/serialize-and-deserialize-bst/solution/
+
+# todo optimzied bytes array encoding
+
+# one char one bytes '10000' 5 bytes beheind the scene 4 bytes can represent all integers 2 ** 32  4,294,967,296  4 Billion
+#
+
+
 so = Solution()
 
 
