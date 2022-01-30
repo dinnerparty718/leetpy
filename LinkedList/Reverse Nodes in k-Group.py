@@ -14,17 +14,18 @@ from utils.buildLinkedList import build_list, print_list
 #! no additional space
 #! reverse function need to be iterative
 
+# Time O(n) go throught twice (reverse: we throught once)
 class Solution:
+
     def reverse(self, node: ListNode) -> ListNode:
-        if not node or not node.next:
-            return node
-
-        new_head = self.reverse(node.next)
-
-        node.next.next = node
-        node.next = None
-
-        return new_head
+        prev = None
+        cur = node
+        while cur:
+            tmp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = tmp
+        return cur
 
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if not head:
