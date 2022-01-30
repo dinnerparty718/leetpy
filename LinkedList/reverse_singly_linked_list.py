@@ -45,7 +45,21 @@ class Solution2:
         return reversed_node
 
 
-so = Solution2()
+class Solution:
+
+    def reverseList(self, node: ListNode) -> ListNode:
+        if not node or not node.next:
+            return node
+
+        new_head = self.reverseList(node.next)
+
+        node.next.next = node
+        node.next = None
+
+        return new_head
+
+
+so = Solution()
 
 
 head = build_list([1, 2, 3, 4, 5])
