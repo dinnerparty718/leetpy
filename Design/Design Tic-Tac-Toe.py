@@ -56,7 +56,9 @@ class TicTacToe:
 
 # own yass!!
 
-# o (n)  2n (rows + cols) + 2   diagonal anti-diagonal
+# Time O(1)
+# space O(n)
+# 2n (rows + cols) + 2   diagonal anti-diagonal
 
 
 class TicTacToe:
