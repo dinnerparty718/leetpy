@@ -6,33 +6,47 @@ MAX = 2 ** 31 - 1
 MIN = - 2 ** 31
 
 
-str = '214748364'
-str = '214748364'
-
-
 # [ -2 ** 31 , 2 **31 - 1 ]
 # if out of bound , return MIN or MAX
-def str_to_number(num: str, sign: str):
+
+
+def to_number(num_str: str):
+
+    if not num_str:
+        return 0
+
+    INT_MAX = pow(2, 31) - 1
+    INT_MIN = - pow(2, 31)
+
+    sign = 1
+    res = 0
 
     i = 0
-    res = 0
-    while i < len(num):
-        val = int(num[i])
 
-        if sign == '+':
-            if res > MAX // 10 or (res == MAX // 10 and val > 7):
-                return MAX
+    if i < len(num_str) and num_str[i] == '-':
+        i += 1
+        sign = -1
+    if i < len(num_str) and num_str[i] == '+':
+        i += 1
+        sign = 1
 
-        else:
-            if res > MAX // 10 or (res == MAX // 10 and val > 8):
-                return MIN
+    while i < len(num_str) and num_str[i].isdigit():
 
-        res = res * 10 + val
+        digit = int(num_str[i])
+
+        if res > INT_MAX // 10 or (res == INT_MAX // 10 and digit > MAX % 10):
+            return INT_MAX if sign == 1 else INT_MIN
+
+        res = res * 10 + digit
         i += 1
 
-    return res if sign == '+' else -res
+    return res * sign
 
 
-val = str_to_number(str, '-')
+str = '214748364'
+str = '-2147483649'
+
+
+val = to_number(str)
 
 print(val)
