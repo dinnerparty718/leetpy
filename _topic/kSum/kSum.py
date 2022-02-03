@@ -18,6 +18,18 @@ class Solution:
             if average_value < numbers[0] or numbers[-1] < average_value:
                 return res
 
+            if k == 2:
+                return twoSum(numbers, target)
+            else:
+
+                for i in range(len(numbers)):
+                    if i == 0 or numbers[i] != numbers[i-1]:
+                        tar = target - numbers[i]
+
+                        vals = kSum(k-1, numbers[i+1:], tar)
+
+            return res
+
         def twoSum(nums: List[int], target: int):
             lo, hi = 0, len(nums)-1
 
