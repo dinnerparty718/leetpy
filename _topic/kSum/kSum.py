@@ -1,11 +1,14 @@
 from typing import List
 
+# yass!
+# O(n^k-1)
+
 
 class Solution:
 
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
 
-        def kSum(k: int, numbers: List[int], target: int) -> List[List[int]]:
+        def kSum(k: int, nums: List[int], target: int) -> List[List[int]]:
 
             res = []
 
@@ -15,18 +18,19 @@ class Solution:
             #
             average_value = target // k
 
-            if average_value < numbers[0] or numbers[-1] < average_value:
+            if average_value < nums[0] or nums[-1] < average_value:
                 return res
 
             if k == 2:
-                return twoSum(numbers, target)
+
+                val = twoSum(nums, target)
+                return val
             else:
 
-                for i in range(len(numbers)):
-                    if i == 0 or numbers[i] != numbers[i-1]:
-                        tar = target - numbers[i]
-
-                        vals = kSum(k-1, numbers[i+1:], tar)
+                for i in range(len(nums)):
+                    if i == 0 or nums[i] != nums[i-1]:
+                        for pair in kSum(k-1, nums[i+1:], target - nums[i]):
+                            res.append([nums[i]] + pair)
 
             return res
 
@@ -44,10 +48,11 @@ class Solution:
                 else:
                     res.append([nums[lo], nums[hi]])
                     lo += 1
-                    hi += 1
+                    hi -= 1
 
-                    while lo < hi and nums[lo] != nums[lo-1]:
+                    while lo < hi and nums[lo] == nums[lo-1]:
                         lo += 1
+
             return res
 
         nums.sort()
@@ -57,7 +62,13 @@ class Solution:
 so = Solution()
 
 
-nums = [1, 0, -1, 0, -2, 2]
+# nums = [1, 0, -1, 0, -2, 2]
+# target = 0
+
+
+nums = [-2, -1, -1, 1, 1, 2, 2]
 target = 0
 
-res = so.fourSum()
+res = so.fourSum(nums, target)
+
+print(res)
