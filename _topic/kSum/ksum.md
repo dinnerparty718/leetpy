@@ -3,3 +3,17 @@
     check nums[lo]!= nums[lo-1]
 
 # hashset only works for target sum, has to deal with duplicate carefully
+
+
+
+
+# twoSum target
+## without sort
+
+hash map
+
+
+
+## with Sort
+
+nums.sort()  Onlogn
