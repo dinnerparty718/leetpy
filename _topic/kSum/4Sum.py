@@ -1,92 +1,71 @@
+# distinct
+
 from typing import List
-from collections import defaultdict
 
-# todo make recursive function for ksum
 
+# yass!!
+
+# O(n^3)  two for loop + two pointer
+# space
 
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
 
-        # def findNsum(nums, target, N, result, results):
-        #     # early termination
-        #     if len(nums) < N or N < 2 or target < nums[0]*N or target > nums[-1]*N:
-        #         return
-        #     if N == 2:  # two pointers solve sorted 2-sum problem
-        #         l, r = 0, len(nums)-1
-        #         while l < r:
-        #             s = nums[l] + nums[r]
-        #             if s == target:
-        #                 results.append(result + [nums[l], nums[r]])
-        #                 l += 1
-        #                 while l < r and nums[l] == nums[l-1]:
-        #                     l += 1
-        #             elif s < target:
-        #                 l += 1
-        #             else:
-        #                 r -= 1
-        #     else:  # recursively reduce N
-        #         for i in range(len(nums)-N+1):
-        #             if i == 0 or (i > 0 and nums[i-1] != nums[i]):
-        #                 findNsum(nums[i+1:], target-nums[i],
-        #                          N-1, result+[nums[i]], results)
+        n = len(nums)
 
-        # results = []
-        # findNsum(sorted(nums), target, 4, [], results)
-        # return results
+        if n < 4:
+            return []
 
+        res = []
         nums.sort()
-        # res = set()
+        #! yield improve performance
 
-        res = []
+        def twoSum(index: int, target: int):
+            lo = index+1
+            hi = n-1
 
-        for i in range(len(nums)):
-            # skip duplicate in outer loop
+            while lo < hi:
+
+                two_sum = nums[lo] + nums[hi]
+
+                if two_sum < target:
+                    lo += 1
+                elif two_sum > target:
+                    hi -= 1
+                else:
+                    yield nums[lo], nums[hi]
+
+                    lo += 1
+                    hi -= 1
+                    #! pattern
+                    while lo < hi and nums[lo] == nums[lo-1]:
+                        lo += 1
+            # return result
+
+        for i in range(n):
+            #! avoid duplicate
             if i == 0 or nums[i] != nums[i-1]:
+                for j in range(i+1, n):
+                    #! avoid duplicate
+                    if j == i + 1 or nums[j] != nums[j-1]:
+                        two_sum_target = target - nums[i] - nums[j]
+                        pairs = twoSum(j, two_sum_target)
 
-                for j in range(i+1, len(nums)):
-
-                    if j == i+1 or nums[j] != nums[j-1]:
-
-                        subset = self.twoSum2(
-                            nums[j+1:], target - nums[i] - nums[j])
-
-                        l = [nums[i], nums[j]]
-
-                        for pair in subset:
-
-                            # res.add(tuple(l + pair))
-                            res.append((l + pair))
-
-        return res
-
-    def twoSum2(self, nums: List[int],  target: int):
-        l, r = 0, len(nums)-1
-
-        res = []
-
-        while l < r:
-            two_sum = nums[l] + nums[r]
-
-            if two_sum > target:
-                r -= 1
-            elif two_sum < target:
-                l += 1
-            else:
-                res.append([nums[l], nums[r]])
-                l += 1
-
-                while l < r and nums[l] == nums[l-1]:
-                    l += 1
+                        for a, b in pairs:
+                            res.append([nums[i], nums[j], a, b])
 
         return res
 
 
-nums = [-1, 0, -5, -2, -2, -4, 0, 1, -2]
+nums = [1, 0, -1, 0, -2, 2]
+target = 0
 
-target = -9
-
+# nums = [2, 2, 2, 2, 2]
+# target = 8
 
 so = Solution()
 
 res = so.fourSum(nums, target)
+
+
 print(res)

@@ -2,6 +2,10 @@
 from typing import List
 
 
+#! return one result and return
+
+# todo multiple pairs
+
 # Time O(n) one pass
 # Space O(n) for hash table
 
