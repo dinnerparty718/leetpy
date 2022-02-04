@@ -23,7 +23,7 @@ class Solution:
 
 # better version using sorted()
 
-# sorted(s) returns a list of chars, which is mutable and unhashable, you need to convert it to a string.
+#! sorted(s) returns a list of chars, which is mutable and unhashable, you need to convert it to a string.
 
 
 class Solution2:

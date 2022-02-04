@@ -49,6 +49,27 @@ class Solution:
                 swapHorizontal(i, j)
 
 
+# second try,
+# transpose via diagonal
+# mirror
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        # transpose diagonal
+
+        n = len(matrix)
+
+        for i in range(n):
+            for j in range(i+1):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+        for i in range(n):
+            for j in range(n//2):
+                matrix[i][j], matrix[i][-j-1] = matrix[i][-j-1], matrix[i][j]
+
+
 # matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 # matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
 matrix = [[1, 2], [3, 4]]
