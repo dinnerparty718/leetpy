@@ -1,5 +1,32 @@
-from re import search
 from typing import List
+
+
+# one pass binary search and comparte left and mid values
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums)-1
+
+        while left <= right:
+            mid = left + (right-left) // 2
+            if nums[mid] == target:
+                return mid
+
+            #! <=
+            elif nums[left] <= nums[mid]:
+                if nums[left] <= target < nums[mid]:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+
+            else:
+                if nums[mid] < target <= nums[right]:
+                    left = mid + 1
+
+                else:
+                    right = mid - 1
+
+        return -1
 
 
 # find rotation point #!  find bottom, loweast point
@@ -9,7 +36,7 @@ from typing import List
 # Time O(logn)
 # sapce O(1)
 
-class Solution:
+class Solution1:
     def search(self, nums: List[int], target: int) -> int:
 
         # def find_peak
@@ -67,12 +94,12 @@ so = Solution()
 nums = [4, 5, 6, 7, 0, 1, 2]
 target = 0
 
-nums = [4, 5, 6, 7, 0, 1, 2]
-target = 3
+# nums = [4, 5, 6, 7, 0, 1, 2]
+# target = 3
 
 
-nums = [1]
-target = 0
+# nums = [1]
+# target = 0
 
 res = so.search(nums, target)
 
