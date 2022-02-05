@@ -1,4 +1,3 @@
-import string
 from typing import List
 from collections import deque, defaultdict
 
@@ -9,6 +8,14 @@ from collections import deque, defaultdict
 # https://www.youtube.com/watch?v=rWd4wScVYxc
 #
 # https://leetcode.com/problems/word-ladder-ii/discuss/490116/Three-Python-solutions%3A-Only-BFS-BFS%2BDFS-biBFS%2B-DFS
+
+# todo bi-directional BFS
+# backtrack
+
+# time O(NK^2 + a ) N = number of words K = max length of word a number of possible path from begin to end
+
+
+# alternative method BFS find shortest length. DFS to construct the path
 
 
 class Solution:
