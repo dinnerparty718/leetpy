@@ -11,6 +11,10 @@ from collections import defaultdict, deque
 # add node when in_degree == 0 to queue
 
 
+# Time O(E + V) E is the number of dependencies (edge) V is number of courses
+# dictionary + in_degree count
+# Space O(E + V)
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
 
