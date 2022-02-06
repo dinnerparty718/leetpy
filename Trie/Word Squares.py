@@ -22,6 +22,9 @@ class Solution:
                     node = newNode
                 node['#'].append(wordIndex)
 
+        for k, v in self.trie.items():
+            print(k, v)
+
     def getWordsWIthPrefix(self, prefix):
         node = self.trie
         for char in prefix:
@@ -51,7 +54,7 @@ class Solution:
             return
 
         prefix = ''.join([word[step] for word in word_squares])
-        print(prefix)
+        # print(prefix)
 
         for candidate in self.getWordsWIthPrefix(prefix):
             word_squares.append(candidate)
@@ -67,4 +70,4 @@ so = Solution()
 res = so.wordSquares(words)
 
 
-print(res)
+# print(res)
