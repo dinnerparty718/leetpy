@@ -3,6 +3,7 @@ import heapq
 
 
 # todo check youtube
+# todo 2/5
 
 class TrieNode:
     def __init__(self) -> None:
