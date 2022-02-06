@@ -33,3 +33,20 @@ personality
 
 
 
+We live in an unfair world: agree have ampathy, mercifulness
+Compliance is a good thing
+Obedient
+
+neutral when>
+
+
+you can't du people by it's cover neutral
+
+
+I like to follow the crowd
+    depends
+    manager/supervisor/ team leader (strongly disagree)
+
+flexiable ! overtime
+
+do before i think noo... think before do

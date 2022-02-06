@@ -5,6 +5,8 @@ class Soloution:
     def test1(self):
         pass
 
+        return 1
+
 
 so = Soloution()
 
