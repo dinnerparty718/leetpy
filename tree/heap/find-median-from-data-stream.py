@@ -29,7 +29,7 @@ class MedianFinder:
             return (-self.max_heap[0] + self.min_heap[0])/2
 
 
-# better login
+# better logn
 class MedianFinder2:
 
     def __init__(self):
