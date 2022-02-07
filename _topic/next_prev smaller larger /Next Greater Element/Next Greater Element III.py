@@ -17,32 +17,17 @@ class Solution:
 
         digits.reverse()
 
-        next_greater_el = [-1] * len(digits)
-
-        stack = []
-
-        for idx, num in enumerate(digits):
-            while stack and digits[stack[-1]] < num:
-                i = stack.pop()
-                next_greater_el[i] = idx
-            stack.append(idx)
-
-        if all(val == -1 for val in next_greater_el):
-            return -1
-
-        print(next_greater_el)
-
-        # next permutation
-        # find last peak, swap previous and last number greater than previous
-
+        #! can just use linear scan to find last peak
         peak_idx = 0
-
         for i in range(1, len(digits)):
-            if next_greater_el[i] == -1 and next_greater_el[i-1] != -1:
+            if digits[i-1] < digits[i]:
                 peak_idx = i
 
-        target = digits[peak_idx-1]
+        # descending order, not possible
+        if peak_idx == 0:
+            return -1
 
+        target = digits[peak_idx-1]
         max_val = float('inf')
 
         j = None
