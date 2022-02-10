@@ -7,6 +7,9 @@ from typing import List
 # https://www.youtube.com/watch?v=TZyBPy7iOAw
 
 
+# subarray sun
+# subarray min
+
 class Soloution:
 
     def getPower(self, powers: List[int]):
