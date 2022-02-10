@@ -49,8 +49,14 @@ def findMinArray(arr, k):
 
   # Write your code here
 
-  # These are the tests we use to determine if the solution is correct.
-  # You can add your own at the bottom.
+
+# works with this
+res = findMinArray([1, 2, 3, 4, 5], 4)
+
+print(res)
+
+# These are the tests we use to determine if the solution is correct.
+# You can add your own at the bottom.
 
 
 def printInteger(n):
