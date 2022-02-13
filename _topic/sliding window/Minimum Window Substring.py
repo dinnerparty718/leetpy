@@ -18,13 +18,6 @@ class Solution:
         #! can't be s_map == t_map
         #! values count can be higher
 
-        def satisfy(h1: dict, h2: dict):
-            for k, v in h1.items():
-                if v < h2[k]:
-                    return False
-
-            return True
-
         while r < len(s):
             char = s[r]
             if char in s_map:
@@ -46,6 +39,7 @@ class Solution:
             r += 1
 
         return s[ans[1]: ans[2]+1] if ans[0] != float('inf') else ''
+
 
         # move l to check if smaller acount
 s = "ADOBECODEBANC"
