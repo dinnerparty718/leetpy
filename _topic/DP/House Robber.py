@@ -1,6 +1,24 @@
 from typing import List
 
 
+# neet code
+# better DP without storing the whole array
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+
+        if n == 1:
+            return nums[0]
+
+        rob1, rob2 = 0, 0
+
+        # [rob1, rob2, n, n+1]
+        for n in nums:
+            rob1, rob2 = rob2, max(n + rob1, rob2)
+
+        return rob2
+
+
 # bottom up
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -20,7 +38,7 @@ class Solution:
         return dp[len(nums)-1]
 
 
-# top up
+# top down
 class Solution:
     def rob(self, nums: List[int]) -> int:
         n = len(nums)
