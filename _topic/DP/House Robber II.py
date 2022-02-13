@@ -10,21 +10,17 @@ class Solution:
 
         def helper(houses: List[int]):
             rob1, rob2 = 0, 0
-            
+
             for h in houses:
                 rob1, rob2 = rob2, max(rob1 + h, rob2)
-                
+
             return rob2
-        
+
         #! pattern
         option1 = helper(nums[1:])
         option2 = helper(nums[:-1])
-        
+
         return max(nums[0], option1, option2)
-
-
-
-        
 
 
 nums = [2, 3, 2]
