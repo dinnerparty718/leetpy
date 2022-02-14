@@ -1,4 +1,3 @@
-from doctest import REPORTING_FLAGS
 
 
 def subset_sum(nums: list[int], target: int):
@@ -18,22 +17,11 @@ def subset_sum(nums: list[int], target: int):
 
     for i in range(1, n):
         for j in range(1, target+1):
-
             curr = nums[i]
-            target_sum = j
-
-            if target_sum < curr:
+            if j < curr:
                 dp[i][j] = dp[i-1][j]
-            elif target_sum == curr:
-                dp[i][j] = True
             else:
-                if dp[i-1][j] == True:
-                    dp[i][j] = True
-                else:
-                    dp[i][j] = dp[i-1][target_sum - curr]
-
-    # for row in dp:
-    #     print(row)
+                dp[i][j] = dp[i-1][j] or dp[i-1][j - curr]
 
     return dp[-1][-1]
 
