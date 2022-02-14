@@ -1,8 +1,13 @@
 from typing import List
 
+# subset sum
+# 01 knapsack
+# DP
 
 # exceed time limit
 # this is brute force
+
+
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
 
