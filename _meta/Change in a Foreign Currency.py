@@ -21,3 +21,7 @@ output = true
 You can make 75 units with the denominations [17, 29, 29].
 
 '''
+
+# todo dynamic programming
+# true or false
+# 1D
