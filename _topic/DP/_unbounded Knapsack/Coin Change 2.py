@@ -6,6 +6,8 @@ from typing import List
 
 # https://www.youtube.com/watch?v=Mjy4hd2xgrs
 
+# O (m*n)
+
 
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
@@ -52,6 +54,8 @@ class Solution1:
         return dp[-1]
 
 # leetcode
+
+# O(n) n - number of coins
 
 
 class Solution1:
