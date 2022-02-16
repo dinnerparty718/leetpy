@@ -13,6 +13,9 @@ Explanation: "aba" is also a valid answer.
 '''
 
 
+# time O(n^2)
+# space O(1) expand from middle
+
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         res = ''
@@ -41,6 +44,15 @@ class Solution:
                 l -= 1
 
         return res
+
+
+# time O(n^2)
+# space o(n^2)
+
+# topdown
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        pass
 
 
 so = Solution()
