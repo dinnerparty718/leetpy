@@ -19,6 +19,8 @@ from typing import List
 from collections import defaultdict
 
 
+# much easy to understand
+# standard dfs or backtrack. need to find the basecase
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """
