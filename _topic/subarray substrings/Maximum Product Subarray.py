@@ -1,5 +1,15 @@
 from typing import List
 
+'''
+simplified DP
+
+min, max = 1,1
+
+when encounter 0, reset back to 1
+
+
+'''
+
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -14,7 +24,7 @@ class Solution:
             tmp = n * curMax
 
             curMax = max(n * curMax, n * curMin, n)
-            curMin = max(tmp, n * curMin, n)
+            curMin = min(tmp, n * curMin, n)
 
             res = max(res, curMax, curMin)
 

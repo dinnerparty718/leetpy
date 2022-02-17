@@ -6,6 +6,12 @@
 # left[i], the length of strictly larger numbers on the left of A[i],
 # right[i], the length of larger numbers on the right of A[i].
 '''
+one pass, left boundary , right boundary
+stack = []
+
+next_smaller [n] * n
+prev_smaller  [-1] * n 
+
 
 
 '''

@@ -1,5 +1,8 @@
 #! Contiguous Subarrays
 '''
+
+https://leetcode.com/discuss/general-discussion/579606/count-contiguous-subarrays
+
 You are given an array arr of N integers. For each index i, you are required to determine the number of contiguous subarrays that fulfill the following conditions:
 The value at index i must be the maximum element in the contiguous subarrays, and
 These contiguous subarrays must either start from or end on index i.
@@ -20,6 +23,13 @@ For index 2 - [1]
 For index 3 - [6], [6, 2], [1, 6], [4, 1, 6], [3, 4, 1, 6]
 For index 4 - [2]
 So, the answer for the above input is [1, 3, 1, 5, 1]
+
+
+
+    -1 0  1  2  3  4  5   
+arr = [3, 4, 1, 6, 2]       for number 6     
+
+
 '''
 
 
@@ -50,7 +60,12 @@ def count_subarrays(arr):
 
     res = [None] * n
 
+    # print(prev_max_el)
+    # print(next_max_el)
+
     for i in range(n):
+        #! i position double conts
+
         left = i - prev_max_el[i]
         right = next_max_el[i] - i - 1
         res[i] = left + right

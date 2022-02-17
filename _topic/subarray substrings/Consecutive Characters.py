@@ -1,5 +1,22 @@
 '''
 https://leetcode.com/problems/consecutive-characters/
+
+The power of the string is the maximum length of a non-empty substring that contains only one unique character.
+
+Given a string s, return the power of s.
+
+Input: s = "abbcccddddeeeeedcba"
+Output: 5
+Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
+
+ 
+
+find right boundary using stack
+
+r = [ n ] * n  default to n if not found
+
+
+
 '''
 
 

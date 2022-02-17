@@ -1,3 +1,28 @@
+'''
+
+asc a-z 97-123
+    65 A
+use hashmap or array [0] * 26  or [0]*128 to keep track of count
+
+l = 0
+
+for r in range(n):
+    char = s[r]
+    cnt[ord(char)] +=1
+    
+    while cnt[ord(char)] > 1
+        # shrink left
+        left = s[l]
+        cnt[ord(left)] -=1
+        left+=1
+    
+    
+    update globbal max
+
+
+
+'''
+
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:

@@ -19,8 +19,11 @@ Explanation: The homogenous substrings are listed as below:
 3 + 1 + 2 + 1 + 3 + 2 + 1 = 13.
 
 
+find the first different character to the right
+using stack
+next_different_char = [n] * n
+
 '''
-# find the first different character to the right
 
 
 class Solution:

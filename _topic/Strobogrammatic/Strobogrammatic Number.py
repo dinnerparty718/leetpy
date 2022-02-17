@@ -1,44 +1,37 @@
 
 
-# 8 0 1
+# single 8 0 1
 
 
 # 6 -> 9
 # 9 -> 6
 
-# own two pointer
+
+'''
+matching 
+
+8:8
+0:0
+1:1
+6:9
+9:6
 
 
-class Solution:
-    def isStrobogrammatic(self, num: str) -> bool:
+two pointer
 
-        if not num:
-            return True
+l, r = 0, len(s)
 
-        mirror = {
-            '8': '8',
-            '0': '0',
-            '6': '9',
-            '9': '6',
-            '1': '1'
-        }
-        l, r = 0, len(num)-1
-        while l < r:
+#! if odd   only 8,0,1 allow in the middle
 
-            if num[l] not in mirror or num[r] not in mirror:
-                return False
+while l <=r:
+    check s[l] in mirror 
+        and
+    compare mirror[s[l]] == s[r]
+    
+    l+=1
+    r-=1
 
-            if mirror[num[l]] != num[r]:
-                return False
-
-            l += 1
-            r -= 1
-
-        if l == r:
-            if num[l] not in '801':
-                return False
-
-        return True
+'''
 
 
 class Solution:
