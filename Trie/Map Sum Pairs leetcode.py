@@ -1,3 +1,14 @@
+'''
+Use trie and a hash map
+
+hashmap store original key value pair
+
+Each trie node store a sum of score for all key
+
+
+'''
+
+
 class Node:
     def __init__(self) -> None:
         self.children = {}
@@ -11,6 +22,9 @@ class MapSum:
         self.root = Node()
 
     def insert(self, key: str, val: int) -> None:
+
+        # to handle duplicate
+        #!  If the key already existed, the original key-value pair will be overridden to the new one.
         delta = val - self.map.get(key, 0)
         self.map[key] = val
 
@@ -32,3 +46,13 @@ class MapSum:
 
             cur = cur.children[c]
         return cur.score
+
+
+obj = MapSum()
+obj.insert('apple', 3)
+print(obj.sum("ap"))
+obj.insert("app", 2)
+print(obj.sum("ap"))
+
+
+print(obj.root.score)

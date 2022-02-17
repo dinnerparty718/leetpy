@@ -1,23 +1,68 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 
+# https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
 
 from typing import List, Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build
-from Tree.traversal.dfs_recursion import preOrderList
+from tree.traversal.dfs_recursion import preOrderList
 
 # todo morris traversal
 # https://leetcode.com/problems/flatten-binary-tree-to-linked-list/solution/
 
+
+'''
+recursive
+
+bottom up -> return tail of the left- subtree
+
+helper(node)
+    base case
+    return None if leaf node
+    
+    left_tail = helper(node.left)
+    right_tail = helper(ndoe.right)
+    
+    
+    if left_tail:
+        left_tail.right = node.right
+        node.right = node.left
+        node.left = None
+    
+    return right_tail if right_tail else left_tail
+
+
+
+
+'''
+
+
+class Solution:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        self.flattenTree(root)
+
+    def flattenTree(self, node: TreeNode):
+        if not node:
+            return None
+
+        # if a leaf node, simple return itself
+        if not node.left and not node.right:
+            return node
+
+        leftTail = self.flattenTree(node.left)
+        rightTail = self.flattenTree(node.right)
+
+        if leftTail:
+            leftTail.right = node.right
+            node.right = node.left
+            node.left = None
+
+        #! important
+        return rightTail if rightTail else leftTail
+
+
 # yass!!
 # Time O(n)
 # Space O(1)
-
 
 class Solution0:
     def flatten(self, root: Optional[TreeNode]) -> None:
@@ -116,30 +161,6 @@ class Solution2:
                 return right
 
         helper(root)
-
-
-class Solution3:
-    def flatten(self, root: Optional[TreeNode]) -> None:
-        self.flattenTree(root)
-
-    def flattenTree(self, node: TreeNode):
-        if not node:
-            return None
-
-        # if a leaf node, simple return itself
-        if not node.left and not node.right:
-            return node
-
-        leftTail = self.flattenTree(node.left)
-        rightTail = self.flattenTree(node.right)
-
-        if leftTail:
-            leftTail.right = node.right
-            node.right = node.left
-            node.left = None
-
-        #! important
-        return rightTail if rightTail else leftTail
 
 
 so = Solution0()

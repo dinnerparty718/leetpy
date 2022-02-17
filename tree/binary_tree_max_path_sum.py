@@ -1,7 +1,31 @@
 from typing import Optional
 
 
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
+
+
+'''
+global_sum = float('-inf')
+
+helper(node)
+    base case
+        if not node -> return 0
+    
+    
+    l = helper(node.left)
+    r = helper(node.right)
+    
+    
+    # reset to zero l,r 
+
+    update global_max
+    global_max = max(global_max, l + node.val + r)
+    
+    
+    return max(l, r) + cur.val
+
+
+'''
 
 
 # bottom up

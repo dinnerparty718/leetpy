@@ -1,7 +1,13 @@
-"""
-# Definition for a Node.
+'''
+level order using queue
 
-"""
+prev = None
+if prev is not None
+    prev.next = curr
+    prev = curr
+
+
+'''
 
 # todo
 # using bfs

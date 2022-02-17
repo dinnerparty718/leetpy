@@ -11,9 +11,9 @@ class Node:
 
 from typing import Optional
 
-from Tree.TreeNode import TreeNode as Node
+from tree.TreeNode import TreeNode as Node
 from utils.buildTree import build
-from Tree.traversal.dfs_recursion import inOrder
+from tree.traversal.dfs_recursion import inOrder
 
 
 # visited stack method

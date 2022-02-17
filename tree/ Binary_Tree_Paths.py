@@ -5,8 +5,31 @@
 #         self.left = left
 #         self.right = right
 from typing import List, Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build
+
+
+'''
+dfs topdown
+
+global res
+
+dfs(node, curr)
+    base case
+        if leaf node
+        curr.append(str(node.val)) #! dont forget to add left node
+        res.append('->'.join(curr))
+        return    
+    
+    
+    if left:
+        dfs(node.left, curr + [str(node.val)] )
+    if right:
+        dfs(node.right, curr + [str(node.val)] )
+
+
+
+'''
 
 
 class Solution:

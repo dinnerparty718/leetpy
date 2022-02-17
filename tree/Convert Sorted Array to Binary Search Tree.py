@@ -6,8 +6,32 @@
 #         self.right = right
 from typing import List, Optional
 
-from Tree.TreeNode import TreeNode
-from Tree.traversal.dfs_recursion import inOrder
+from tree.TreeNode import TreeNode
+from tree.traversal.dfs_recursion import inOrder
+
+
+'''
+pick middle as root
+recursively build tree
+
+helper(start, end) -> node
+    base case
+        start > end
+        return noe
+        
+    mid = start + (end-start) // 2
+    
+    
+    root = Node(nums(mid))
+    root.left = helper(start, mid-1)
+    root.right = helper(mid+1, end)
+    
+    return root
+
+helper(0, len(nums)-1)
+
+
+'''
 
 
 # own pick the middle value as a root, but use nums slice

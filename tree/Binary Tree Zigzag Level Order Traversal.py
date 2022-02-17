@@ -12,6 +12,15 @@ from tree.TreeNode import TreeNode
 #         self.right = right
 
 
+'''
+Level order using queue
+
+reverse the value for odd rows
+
+
+'''
+
+
 # normal BFS reverse the list when encounter odd level
 # Time O(N)
 # space O(N)

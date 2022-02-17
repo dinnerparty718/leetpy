@@ -1,12 +1,30 @@
 import collections
 from Codec import Codec
 from typing import Optional
-from Tree.TreeNode import TreeNode
-from Tree.traversal.dfs_recursion import preOrder
+from tree.TreeNode import TreeNode
+from tree.traversal.dfs_recursion import preOrder
 
 
 # time O(n)
 # space worst O(n) best case O(logN)
+
+
+'''
+
+#! similar to "is same tree"
+
+isSymmetric_helper(root, root)
+
+isSymmetric_helper(n1,n2) - recursive
+    base case
+        1. not n1 and not n2 -> True
+        2. not n1 or not n2 -> False
+        
+    return n1.val == n2.vall and isSymmetric_helper(n1.left, n2.right) and isSymmetric_helper(n1.right, n2.left)
+
+
+'''
+
 
 class Solution:
 

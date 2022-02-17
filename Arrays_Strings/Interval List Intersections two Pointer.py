@@ -1,6 +1,36 @@
 from typing import List
 
 
+'''
+Two pointers
+i, j = 0,0
+
+res = []
+
+while i < len(a) and j < len(b)
+
+    overlappped =  a_intersect_b or b_intersect_a
+    
+    calculate overlapepd
+        start = max(a.start, b.start)
+        end = min(a.end b.end)
+        
+        res.append([start,end])
+    
+
+    update i or j
+        if a.end < b.end:
+            i+=1
+        else:
+            j+=1
+    
+
+return res
+
+
+'''
+
+
 # https://leetcode.com/problems/interval-list-intersections/discuss/712920/Python-3-(classical-interval-intersection)
 class Solution:
     def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:

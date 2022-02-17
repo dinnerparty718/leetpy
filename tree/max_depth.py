@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 from typing import Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 
 # time O(n)
 # space depends if the tree is balanced or not

@@ -1,6 +1,19 @@
 from typing import Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from collections import deque
+
+
+'''
+isSameTree  - Recersive
+    base case
+        1. not q and not p -> True
+        2. noq q or not p -> False
+        3. p.val != q.val -> False
+        
+    return  isSameTree(q.left, p.left) and isSameTree(q.right, p.right) 
+
+
+'''
 
 
 class Solution:

@@ -2,6 +2,36 @@ from typing import List
 import heapq
 
 
+'''
+Use Trie
+    add hot:int in to Node Class
+    hot value stores at end of sentence
+Store current search in array cur_input = []
+
+
+steps
+    build trie
+    
+    user input '#'
+        add current search to trie
+        epmty curretn search cur_input = []
+    else:
+        append char to cur_input
+        find the last node from input
+        search in the trie from that node
+            recursively search
+            base case
+                reach 
+                
+            do:
+                get a list of sentences (-hot, sentence) for max heap
+        len of sentences > 3, heapify. 
+        return
+
+
+'''
+
+
 # todo check youtube
 # todo 2/5
 

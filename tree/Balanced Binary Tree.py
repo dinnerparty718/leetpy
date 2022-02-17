@@ -5,7 +5,35 @@
 #         self.left = left
 #         self.right = right
 from typing import Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
+
+
+'''
+bottom up  (isBalanced, height)
+
+
+isBalance_h(node)
+    base case
+        1 not node -> True,-1
+        
+        
+        
+    # can do early return here
+    isLeftBalance, left_height = isBalance_h(node.left)
+    isRightBalance, right_height = isBalance_h(node.right)
+    
+    return (right_height - left_height < 2 , max(right_height, left_height) +1 )
+    
+    
+    
+    
+
+
+return isBalance_h(node)[0]
+
+
+
+'''
 
 
 # own bottom up

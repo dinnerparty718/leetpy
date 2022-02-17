@@ -6,7 +6,7 @@
 #         self.right = None
 
 from typing import Tuple
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build, findNode
 
 # botom up
@@ -15,6 +15,31 @@ from utils.buildTree import build, findNode
 # return that node
 
 # own solution
+
+
+'''
+
+p,q
+
+global self.ans = None
+
+
+helper(node) -> bool
+    base case
+        return None if not node
+        
+    left = helper(node.left)
+    right = helper(node.right)
+    
+    mid = node == p or node == q
+    
+    if mid + left + rigth >= 2
+        self.ans = ndoe
+        
+    return mid or left or right
+
+
+'''
 
 
 class Solution:

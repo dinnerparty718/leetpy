@@ -1,54 +1,6 @@
 from typing import List
 import collections
 
-# class TrieNode:
-#     def __init__(self) -> None:
-#         self.children = {}
-#         self.end = False
-
-
-# class Trie:
-#     def __init__(self) -> None:
-#         self.root = TrieNode()
-
-#     def add(self, prefix: str):
-#         cur = self.root
-
-#         for c in prefix:
-#             if c not in cur.children:
-#                 cur.children[c] = TrieNode()
-#             cur = cur.children[c]
-#         cur.end = True
-
-#     def searchAndReplace(self, word: str):
-#         cur = self.root
-
-#         prefix = []
-
-#         for c in word:
-#             if c in cur.children:
-#                 prefix.append(c)
-#                 cur = cur.children[c]
-#                 if cur.end == True:
-#                     return ''.join(prefix)
-#             else:
-#                 break
-
-#         return word
-
-
-# class Solution:
-#     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
-#         trie = Trie()
-#         for str in dictionary:
-#             trie.add(str)
-
-#         s = sentence.split()
-
-#         res = [trie.searchAndReplace(word) for word in s]
-
-#         return ' '.join(res)
-
 
 class TrieNode:
     def __init__(self):

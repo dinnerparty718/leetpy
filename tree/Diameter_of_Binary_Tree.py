@@ -1,11 +1,19 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+'''
+Given the root of a binary tree, return the length of the diameter of the tree.
+
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
+The length of a path between two nodes is represented by the number of edges between them.
+
+
+
+
+
+'''
+
+
 from typing import Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build
 
 
@@ -13,6 +21,30 @@ from utils.buildTree import build
 
 # time O(n)
 # space O(n) implict stack. if balanced O(logn)
+
+
+'''
+res = float('-inf')
+
+heler(node)
+    nonlocal res
+
+    base case
+        return 0 if not node
+        
+        
+    left = helper(node.left)
+    right = helper(node.right)
+    
+    update global sum
+    
+    res = max(res, left + right)
+    
+    
+    return max(left, rigtht) +1
+
+
+'''
 
 
 class Solution:

@@ -5,15 +5,31 @@
 #         self.left = left
 #         self.right = right
 from typing import List, Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build
 from collections import deque
 from collections import defaultdict
 # draw tree and find patterns
 # BFS, level is naturally preserve
 
-# todo
+
 # record min and max column index to avoid sorting
+
+'''
+travese the tree using index offset, and them to defaultdict(list)  key is offset key
+
+node offset
+node.left offset -1
+node.right offset + 1
+
+
+
+record global min, global max
+
+loop through range(min, max+1) 
+
+
+'''
 
 
 class Solution:

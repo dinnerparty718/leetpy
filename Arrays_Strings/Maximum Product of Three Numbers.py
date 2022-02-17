@@ -1,6 +1,15 @@
 import heapq
 from typing import List
 
+
+'''
+dp
+min_arr = [ None ] * n
+
+
+'''
+
+
 #! because of negative number
 # min1 * min2 * max1    or
 # max1 * max2 * max3

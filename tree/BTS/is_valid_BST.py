@@ -9,9 +9,45 @@ from tree.TreeNode import TreeNode
 from utils.buildTree import build
 
 
+# solution upperlimit and lowerlimit
+'''
+lower_bound < curr.val < upper_bound
+
+helper(node, lower_bound, upper_bound)
+    base case
+        if not node return True
+        
+        
+    res = lower_bound < node.val < upper_bound  
+        and
+            heler(node.left, lower_bound, node.val)
+        and
+            heler(node.right, node.val, upper_bound)
+
+        
+    return res
+
+
+
+
+'''
+
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+
+        def isValid(node: TreeNode, lower_bound: int, upper_bound: int):
+            if not node:
+                return True
+            return lower_bound < node.val < upper_bound and isValid(node.left, lower_bound, node.val) and isValid(node.right, node.val, upper_bound)
+
+        return isValid(root, float('-inf'), float('inf'))
+
+
 # inOrder traversal and make sure it's decending order
 # time O(n)
 # space O(n)
+
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         prev = None
@@ -30,18 +66,6 @@ class Solution:
             return inOrder(node.right)
 
         return inOrder(root)
-
-
-# solution2 upperlimit and lowerlimit
-class Solution2:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
-
-        def isValid(node: TreeNode, lower_bound: int, upper_bound: int):
-            if not node:
-                return True
-            return lower_bound < node.val < upper_bound and isValid(node.left, lower_bound, node.val) and isValid(node.right, node.val, upper_bound)
-
-        return isValid(root, float('-inf'), float('inf'))
 
 
 root = build('5,4,6,3,7')

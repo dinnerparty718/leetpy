@@ -1,4 +1,19 @@
 # todo divide and conqure
+'''
+define constant bil,mil,thousand
+
+
+
+
+
+
+'''
+
+one_billion = 1_000_000_000
+one_million = 1_000_000
+one_thousand = 1_000
+
+
 class Solution:
     def numberToWords(self, num: int) -> str:
 
@@ -67,10 +82,10 @@ class Solution:
             return switcher.get(num)
 
         #! important pattern
-        billion = num // 1000000000
-        million = (num - billion * 1000000000) // 1000000
-        thousand = (num - billion * 1000000000 - million * 1000000) // 1000
-        rest = num - billion * 1000000000 - million * 1000000 - thousand * 1000
+        billion = num // 1_000_000_000
+        million = (num - billion * 1_000_000_000) // 1_000_000
+        thousand = (num - billion * 1_000_000_000 - million * 1_000_000) // 1_000
+        rest = num - billion * 1_000_000_000 - million * 1_000_000 - thousand * 1_000
 
         if not num:
             return 'Zero'

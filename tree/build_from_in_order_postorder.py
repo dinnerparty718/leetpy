@@ -3,43 +3,34 @@ from traversal.dfs_recursion import inOrder, postOrder
 from TreeNode import TreeNode
 
 '''
-Note: use inner function for helper function to avoid using self.helper()
+build hashmap for inorder
+    h_map = { val: index for index, val in enumerate(inorder)  }
+find root ->
+    - pop last node from postorder    postorder.pop()
+    - pop first node from preorder    pretorder.pop(0)
+find left, right children ->  in order          [left children, root, right children]
+
+
+Bottom up, return root
+
+helper(start, end) -- recursive
+    base case
+        return None if start > end
+        
+    root_val = postorder.pop()
+    
+    root =  Node(root_val)
+    
+    idx = h_map[root_val]
+    
+    root.left = helper(start, root_val-1 )
+    root.right = helper(root_val+1, end)
+    
+    return node
+
+ 
 
 '''
-
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-
-
-# class Solution:
-
-#     def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
-#         self.inorder = inorder[:]
-#         self.postorder = postorder[:]
-#         self.inorderHash = {val: index for index, val in enumerate(inorder)}
-#         self.postOrderIdx = len(postorder)-1
-
-#         return self.helper(0, len(inorder)-1)
-
-#     def helper(self, start: int, end: int) -> Optional[TreeNode]:
-#         if start > end:
-#             return None
-
-#         rootVal = self.postorder[self.postOrderIdx]
-
-#         self.postOrderIdx -= 1
-
-#         node = TreeNode(rootVal)
-#         inOrderIdx = self.inorderHash[rootVal]
-
-#         node.right = self.helper(inOrderIdx + 1, end)
-#         node.left = self.helper(start, inOrderIdx - 1)
-
-#         return node
 
 
 class Solution:

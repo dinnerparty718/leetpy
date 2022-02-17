@@ -5,6 +5,22 @@ from typing import List
 # https://www.youtube.com/watch?v=86CQq3pKSUw
 
 
+'''
+Kadane's algorithm or dp
+
+curMax = globalMax = nums[0]
+
+for i in range(1, len(nums)):
+    cur = nums[i]
+    curMax = max(curMax + curr)
+    
+    globalMax = max(globalMax, curMax)
+
+return globalMax
+
+'''
+
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
 
