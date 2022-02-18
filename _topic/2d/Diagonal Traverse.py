@@ -1,33 +1,37 @@
 from typing import List
+from collections import defaultdict
 
 
-# exceee limit
+'''
+loop matric build hashmap
 
-# todo
+key = i+j
+values = []
+
+reverse list of values when key is even
+
+'''
+
 
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         m = len(mat)
         n = len(mat[0])
 
+        h = defaultdict(list)
         res = []
-        cur = []
 
-        for idx_sum in range(m + n - 1):
+        for i in range(m):
+            for j in range(n):
+                h[i+j].append(mat[i][j])
 
-            cur.clear()
+        # print(h)
 
-            #! how to figure out the head
-            for i in range(m + n - 1):
-                j = idx_sum - i
-                if 0 <= i < m and 0 <= j < n:
-                    cur.append(mat[i][j])
+        for key, values in h.items():
+            if key % 2 == 0:
+                values.reverse()
 
-            if idx_sum % 2 == 0:
-
-                res.extend(cur[::-1])
-            else:
-                res.extend(cur)
+            res.extend(values)
 
         return res
 

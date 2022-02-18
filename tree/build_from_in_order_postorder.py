@@ -23,9 +23,8 @@ helper(start, end) -- recursive
     
     idx = h_map[root_val]
     
-    root.left = helper(start, root_val-1 )
     root.right = helper(root_val+1, end)
-    
+    root.left = helper(start, root_val-1 )
     return node
 
  
