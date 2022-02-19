@@ -1,8 +1,59 @@
 from typing import List
 
+
+'''
+attentive: most top 4 common word streaming
+
+
+build counter hashmap
+buiod hashset for banned word
+
+for loop
+    - append to buffer when encounter alpha, 
+    - not alpha, if buffer not in banned word hashset add to conter
+    - update global max count 
+
+
+
+'''
+
 # building work until it hit space or .,
 # move to the map if not banned
 from collections import Counter, defaultdict
+
+
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        banned_words = set(banned)
+
+        buffer = []
+        counter = defaultdict(int)
+        most_common = None
+
+        max_count = 0
+
+        for i in range(len(paragraph)):
+            char = paragraph[i]
+
+            if char.isalnum():
+                buffer.append(char.lower())
+
+                #! taking care end of loop buffer
+                if i != len(paragraph) - 1:
+                    continue
+
+            if buffer:
+                word = ''.join(buffer)
+                if word not in banned_words:
+                    counter[word] += 1
+
+                    if counter[word] > max_count:
+                        max_count = counter[word]
+                        most_common = word
+
+                buffer = []
+
+        return most_common
 
 
 # time O(M + N)
@@ -45,38 +96,6 @@ class Solution:
 
 
 # leetcode
-class Solution:
-    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-        banned_words = set(banned)
-
-        buffer = []
-        counter = defaultdict(int)
-        most_common = None
-
-        max_count = 0
-
-        for i in range(len(paragraph)):
-            char = paragraph[i]
-
-            if char.isalnum():
-                buffer.append(char.lower())
-
-                #! taking care end of loop buffer
-                if i != len(paragraph) - 1:
-                    continue
-
-            if buffer:
-                word = ''.join(buffer)
-                if word not in banned_words:
-                    counter[word] += 1
-
-                    if counter[word] > max_count:
-                        max_count = counter[word]
-                        most_common = word
-
-                buffer = []
-
-        return most_common
 
 
 so = Solution()
