@@ -46,15 +46,6 @@ class Solution:
         return res
 
 
-# time O(n^2)
-# space o(n^2)
-
-# topdown
-class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        pass
-
-
 so = Solution()
 
 s = "babad"
