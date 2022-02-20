@@ -53,7 +53,35 @@ insert (i, j+1)
 delete (i+1, j)
 replace (i+1, j+1)
 
+        w2   j
+i    w
+     1
 
+
+DP
+dp = [[float('inf')] * (n+1) for _ in range(m+1)] 
+hint: minDistance
+
+#! basecase
+
+    +++3
+    +++2
+    +++1
+    3210
+
+#! recurrence
+
+    if matched, look for diagonal
+    
+    if w1[i] == w2[j]:
+        dp[i][j] = dp[i+1][j+1]
+    else
+        one change  min(insert, delete replace)
+        dp[i][j] = 1 + min(dp[i][j+1],dp[i+1][j], dp[i+1][j+1]  )
+
+
+
+#! return dp[0][0]
 
 '''
 

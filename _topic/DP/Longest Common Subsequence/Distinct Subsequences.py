@@ -9,40 +9,37 @@ The test cases are generated so that the answer fits on a 32-bit signed integer.
 
 
 
-base cae
+base case
 
 if t == '' return 1
 
 if s == '' return 0
 
+
+DP
+dp = [[0] * (n+1) for _ in range(m+1)] 
+
+#! basecase
+    1. column reach the end, t == '' return 1
+    2. row reach the end, s == '' there is nothing else to match return 0
+        0001
+        0001
+        0001
+
+#! recurrence
+    if match
+        s[i] == t[j]
+        can skip both i, j or skip i only
+        dp[i][j] = dp[i+1][j+1] + dp[i+1][j]
+    
+    not match, skip i
+        dp[i][j] = dp[i+1][j]
+    
+
+#! return dp[0][0]
+
+
 '''
-# Time Space O(m*n)
-# top down with memo Slow
-
-
-class Solution:
-    def numDistinct(self, s: str, t: str) -> int:
-        cache = {}
-        m = len(s)
-        n = len(t)
-
-        def dfs(i: int, j: int):
-            if j == n:
-                return 1
-            if i == m:
-                return 0
-
-            if (i, j) in cache:
-                return cache[(i, j)]
-
-            if s[i] == t[j]:
-                cache[(i, j)] = dfs(i+1, j+1) + dfs(i + 1, j)
-            else:
-                cache[(i, j)] = dfs(i+1, j)
-
-            return cache[(i, j)]
-
-        return dfs(0, 0)
 
 
 # bottom up
@@ -73,6 +70,35 @@ class Solution:
                     dp[i][j] = dp[i+1][j]
 
         return dp[0][0]
+
+
+# Time Space O(m*n)
+# top down with memo Slow
+
+
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        cache = {}
+        m = len(s)
+        n = len(t)
+
+        def dfs(i: int, j: int):
+            if j == n:
+                return 1
+            if i == m:
+                return 0
+
+            if (i, j) in cache:
+                return cache[(i, j)]
+
+            if s[i] == t[j]:
+                cache[(i, j)] = dfs(i+1, j+1) + dfs(i + 1, j)
+            else:
+                cache[(i, j)] = dfs(i+1, j)
+
+            return cache[(i, j)]
+
+        return dfs(0, 0)
 
 
 so = Solution()

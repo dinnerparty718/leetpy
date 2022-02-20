@@ -11,6 +11,27 @@ from typing import List
 # two for loop
 
 
+'''
+DP
+dp = [1] * n
+
+#! basecase
+    111111111
+
+
+#! recurrence
+    i   right -> left
+    j    range(i+1,n)
+    
+    if nums[i] < num[j]
+        dp[i] = max(dp[i], 1 + dp[j])
+
+#! return max(dp)
+
+
+'''
+
+
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         n = len(nums)

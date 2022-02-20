@@ -6,7 +6,59 @@ A subsequence of a string is a new string generated from the original string wit
 For example, "ace" is a subsequence of "abcde".
 A common subsequence of two strings is a subsequence that is common to both strings.
 
+
+bottom up
+
+text1 = abcde   m
+text2 = ace     n
+
+dp = [[0] * (n+1) for _ in range(m+1)] 
+
+
+#! basecase
+    0000
+    0000
+    0000
+    
+from right -> left  bottom -> up
+
+
+#! recurrence
+    if text1[i] = text2[j]
+        dp[i][j] = dp[i+1][j+1]
+    else:
+    #! look for max(right, down)
+        dp[i][j] = max(dp[i][j+1], dp[i+1][i]])
+
+#! return dp[0][0]
+
+
 '''
+
+
+# own! yass
+# recurrence relationship and intialize one more col and rows
+
+# Time O(m*n)
+# Space O(m*n)
+
+
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        m = len(text1)
+        n = len(text2)
+
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+        for i in range(m - 1, -1, -1):
+            for j in range(n-1, -1, -1):
+                if text1[i] == text2[j]:
+                    dp[i][j] = 1 + dp[i+1][j+1]
+                else:
+                    # look for the, right and down
+                    dp[i][j] = max(dp[i][j+1], dp[i+1][j])
+        return dp[0][0]
+
 
 # own topdown with memo. Yas!
 
@@ -42,34 +94,6 @@ class Solution:
             return memo[(i, j)]
 
         return dfs(0, 0)
-
-
-# own! yass
-# recurrence relationship and intialize one more col and rows
-
-# Time O(m*n)
-# Space O(m*n)
-
-
-class Solution:
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        m = len(text1)
-        n = len(text2)
-
-        dp = [[0] * (n + 1) for _ in range(m + 1)]
-
-        for i in range(m - 1, -1, -1):
-            for j in range(n-1, -1, -1):
-                if text1[i] == text2[j]:
-                    dp[i][j] = 1 + dp[i+1][j+1]
-                else:
-                    # look for the, right and down
-                    dp[i][j] = max(dp[i][j+1], dp[i+1][j])
-
-        # for row in dp:
-        #     print(row)
-
-        return dp[0][0]
 
 
 so = Solution()
