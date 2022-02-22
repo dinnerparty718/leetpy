@@ -6,16 +6,20 @@
 # min = -2**31
 # max = 2*31 -1
 
-# finally own
+#
 
 
-# algorithm
+'''algorithm
 
-# 1. skip any white spaces
-# 2. check next i '+' or '-' and change the sign accordingly
-# 3  construct positive number until reaching non-numeric
-# 4  before * 10 check overflow and underflow
-#    0-7
+1. skip any white spaces
+2. check next i '+' or '-' and change the sign accordingly
+3  construct positive number until reaching non-numeric
+4  before * 10 check overflow and underflow
+
+ min = -2**31
+ max = 2*31 -1
+   0-7
+'''
 
 
 class Solution:

@@ -8,6 +8,18 @@
 # As there is a finite set of roman numerals, the maximum number possible number can be 3999, which in roman numerals is MMMCMXCIX. As such the time complexity is O(1)O(1).
 # space O(1)
 
+
+'''
+
+build hash map with larger number first
+
+One pass left ->right
+if m[char] < m[char +1] 
+    result is minus
+
+'''
+
+
 class Solution:
     def romanToInt(self, s: str) -> int:
         m = {
