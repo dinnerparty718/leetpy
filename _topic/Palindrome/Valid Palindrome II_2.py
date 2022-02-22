@@ -1,6 +1,17 @@
 # own second time
 # try skipping from left side
 # try skipping from right side if prev result is False
+
+
+'''
+#todo 
+
+https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/289/discuss/107718/Easy-to-Understand-Python-Solution
+
+
+'''
+
+
 class Solution:
     def validPalindrome(self, s: str) -> bool:
 

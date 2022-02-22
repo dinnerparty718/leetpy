@@ -9,6 +9,14 @@ from collections import defaultdict
 
 # excee limit most of the time
 
+'''
+from all building. BFS to each empty land
+
+for each empty land. sum up the distanc is all reachable
+
+
+'''
+
 
 class Solution:
     def shortestDistance(self, grid: List[List[int]]) -> int:

@@ -4,6 +4,16 @@ from collections import defaultdict
 # sort time NKlog(K)  K is the length of the string
 # space O(KN)
 
+'''
+
+#todo
+
+tuple([0]*26)
+
+
+
+'''
+
 
 # own
 class Solution:

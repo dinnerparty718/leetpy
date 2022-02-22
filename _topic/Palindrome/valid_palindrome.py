@@ -8,6 +8,13 @@
 # space O(1)
 # do not take extra space
 
+
+'''
+#todo l < r
+
+'''
+
+
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         # s1 = s.lower().replace(' ', '')
