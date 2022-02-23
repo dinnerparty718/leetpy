@@ -36,6 +36,9 @@ BC
 '''
 
 
+import bisect
+
+
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
         n = len(s)
@@ -66,8 +69,8 @@ class Solution:
 
             res += left_cnt * right_cnt
 
-        print(l)
-        print(r)
+        # print(l)
+        # print(r)
 
         return res
 
@@ -101,10 +104,14 @@ class Solution1:
         return cnt
 
 
-s = "LEETCODE"
+# s = "LEETCODE"
+s = "zzzyz"
 
 so = Solution()
 
 res = so.uniqueLetterString(s)
 
 print(res)
+
+
+bisect.bisect_right
