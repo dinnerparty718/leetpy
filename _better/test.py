@@ -37,56 +37,38 @@ def person(data):
 
     res = []
 
-    res2 = []
+    def getMinute(val: int):
+        hour = val // 100
+        minute = val - hour * 100
+
+        total_minutes = hour * 60 + minute
+        return total_minutes
 
     for k, v in h_map.items():
         v.sort()
         # print(v)
         n = len(v)
 
-        # for i in range(n-2):
-        #   cur = v[i]
-        #   third = v[i+2]
-        #   # 1350 1355
-        #   h_cur =  cur // 100  #13
-        #   min_cur = cur - h_cur * 100
+        for i in range(n-2):
+            cur = v[i]
+            third = v[i+2]
 
-        #   h_third = third // 100
-        #   min_third = third - h_third * 100
+            if getMinute(third) - getMinute(cur) <= 60:
+                time = [v[i], v[i+1], v[i+2]]
 
-        #   cur_minute = h_cur * 60 + min_cur
-        #   third_minute = h_third * 60 + min_third
+                j = i + 3
+                while j < n:
+                    if getMinute(v[j]) - getMinute(cur) <= 60:
+                        time.append(v[j])
+                    else:
+                        break
 
-        #   if third_minute - cur_minute <= 60:
-        #     # print(i,
+                    j += 1
 
-        #     # if k == 'Jennifer':
-        #     #   print('DEBGU',cur_minute,third_minute )
-        #     res.append((k,v[i],v[i+1], v[i+2] ))
-        #     break
+                res.append((k, time))
+                break
 
-        r = 0
-        start_min = None
-        local_res = []
-
-        while r < n:
-            cur_min = (v[r] // 100) * 60 + (v[r] - (v[r] // 100) * 100)
-
-            if start_min is None:
-                start_min = cur_min
-                local_res.append(start_min)
-            else:
-                if cur_min - start_min <= 60:
-                    r += 1
-                    local_res.append(cur_min)
-                else:
-                    start_min = None
-                    local_res = []
-
-        if len(local_res) >= 3:
-            res2.append((k, local_res))
-
-    return res2
+    return res
 
 
 badge_records = [
@@ -127,4 +109,7 @@ badge_records = [
 
 res = person(badge_records)
 
-print(res)
+# print(res)
+
+for item in res:
+    print(item)
