@@ -230,3 +230,71 @@ Authorization: verify what you're allowed to do, resources you're allowed to acc
         client id and secret
 
 
+## react node and oauth2 
+[link] https://www.youtube.com/watch?v=dyZmsz6usWk
+
+
+### Web API Pagination
+## Offset-based vs Cursor-based
+
+
+# Offset-based
+    Client provides
+    - Limit - maxinum number of items in a batch AKA page
+    - offset - The starting position in the list of items
+
+    https://www.awesome-store.com/products?limit=50&offset=100
+
+    setect *
+    from products
+    order by id desc
+    limit 50 offset 100
+
+Pros
+    - simple implementiation for client and server
+    - possible to jump to arbitrary pages
+Cons
+    - unreliable results
+    - Inefficient for large or distributed datasets
+
+# Cursor-based
+Client requests with a limit
+    https://www.awesome-store.com/products?limit=50
+Server responds with results and a next-cursor
+    next-cursor=12345678
+client includes this cursor in subsequent requests
+    https://www.awesome-store.com/products?limit=50&nextCursor=12345678
+
+Pros
+    improve performance - index on cursor
+    consistent results
+cons
+    clients need to traverse through each page one by one
+    records need to added sequentially to the DB
+    client need to manage the next cursor
+
+
+
+### Web API Rage Limiting
+
+1. Prevent single point of failure (DoS attack)
+2. Prevent misuse
+
+
+
+1. avoid global rate limites
+2. measure clients based on use case
+
+Users -> per-user basis
+application -> per-application basis
+Unauthenticated -> IP address
+
+3. design for occasional traffice bursts
+4. Allow exceptions for high profile clients
+   
+API Performance
+    Redis or Memcached
+Rate Limiting algorithems
+    - token bucket
+    - fixed window counter
+    - sliding window counter
