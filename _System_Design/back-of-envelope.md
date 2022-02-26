@@ -1,3 +1,40 @@
+## char to bytes
+
+char	1 byte    5 chars 5 bytes
+int	    4 bytes  2 ** 32   [-2** 31 , 2**31 -1] 
+
+
+
+## Bandwidth   kb/s     
+
+# MegaBits per Second in one MegaByte per Second
+# mbps - MegaBits per second
+# mb/s = MagaByte per second
+
+Mbps * 8.388608 = MBps
+
+10 Mbps is equal to 83.886080 MBps
+
+
+
+
+
+
+## 195 countries
+
+##  population
+
+# total: 7.9 billion
+
+1. China            1.44b
+2. India            1.38b
+3. United States     331M (286.9M cars)
+
+
+# 1 hour = 3600 s
+# 365 * 24 * 3600
+
+
 ## User volume
 https://datareportal.com/social-media-users
 
@@ -35,3 +72,6 @@ Google map is a huge graph -> shortest path
 
 
 
+## number of cars in US
+
+# 286.9 m

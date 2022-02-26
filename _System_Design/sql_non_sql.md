@@ -146,3 +146,20 @@ Regular databases are not built to handle time-series data. With the advent of I
 # Wide-Column Database
 
 Cassandra, HBase, Google BigTable, ScyllaDB
+
+
+
+# Cache
+
+
+Caching Strategies
+
+Cache aside
+    read-heavy workloads
+    use TTL to invalidate the cache
+Read-through (cache provider)
+    Application data in this strategy is also lazy-loaded in the cache only when the user requests it. Also, the data model of the cache has to be consistent with the database since it is updated automatically by the library.
+Write-through (cache provider)
+    for use cases where we need strict data consistency between the cache and the database.
+Write-back
+    the data is directly written to the cache instead of the database, and the cache, after some delay, as per the business logic, writes data to the database.

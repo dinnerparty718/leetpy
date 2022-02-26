@@ -1,0 +1,6 @@
+- Be thorough with the requirements
+- See if what we already know fits the requirements
+- Does the tech we have picked has an active community? How is the documentation and the support?
+- Is the tech being used by big guns in production?
+- Check the license. Is it open source?
+- Availability Of skilled resources on the tech

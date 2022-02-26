@@ -1,5 +1,16 @@
 from typing import List
 
+'''
+287. Find the Duplicate Number
+
+
+高斯
+1 + 2 + 3 + 4 =  (1 + 4) * 4 /2 = 10
+Sum(nums) = 10 = 2
+
+
+'''
+
 # todo  binary search method
 
 # cycle detection
