@@ -81,3 +81,10 @@ Google map is a huge graph -> shortest path
 ## number of cars in US
 
 # 286.9 m
+
+
+
+## lat long 
+mysql has geo data type
+
+double 8 bytes

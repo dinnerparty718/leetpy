@@ -7,7 +7,7 @@ def numStr(number: int):
 
 
 def main():
-    num = 300_000_000
+    num = 2**32
 
     print(numStr(num))
 
