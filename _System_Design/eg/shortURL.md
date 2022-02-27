@@ -1,4 +1,6 @@
-URL
+
+
+# URL
 
 your URL should never be longer than 2,048 characters.
 
@@ -54,3 +56,25 @@ createURL(api_dev_key, original_url, custom_alias=None, user_name=None, expire_d
 # api_dev_key use to throttle 
 
 The API developer key of a registered account. throttle users based on their allocated quota
+
+
+Using base64 encoding, a 6 letters long key would result in 64^6 = ~68.7 billion possible strings. -> sufficient
+Using base64 encoding, an 8 letters long key would result in 64^8 = ~281 trillion possible strings.
+
+make sure unique
+Key Generation Service (KGS) that generates random six-letter strings beforehand and stores them in a database (let’s call it key-DB). 
+
+How to handle concurrency
+
+What would be the key-DB size? With base64 encoding, we can generate 68.7B unique six letters keys. If we need one byte to store one alpha-numeric character, we can store all these keys in:
+
+6 (characters per key) * 68.7B (unique keys) = 412 GB.
+
+
+
+# todo
+
+to generate key ahead of time
+or dynamically assign values
+
+Using Redis as an LRU cache. automatically evicted

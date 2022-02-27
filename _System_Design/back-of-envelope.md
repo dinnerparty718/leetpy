@@ -22,6 +22,12 @@ Mbps * 8.388608 = MBps
 
 ## 195 countries
 
+## US 
+
+500 cities
+
+11,874 movie theaters
+
 ##  population
 
 # total: 7.9 billion
