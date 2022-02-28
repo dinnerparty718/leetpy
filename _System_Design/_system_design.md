@@ -18,3 +18,4 @@ Step 7: Identifying and resolving bottlenecks
     websocket manager -> redis
     store which server connected to which server
 
+# long polling
