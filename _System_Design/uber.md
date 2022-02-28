@@ -1,1 +1,0 @@
-Uber used Node.js to write their core trip execution engine. The technology enabled them to manage a large number of concurrent connections without much fuss.

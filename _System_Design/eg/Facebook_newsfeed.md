@@ -58,3 +58,23 @@ The process of pushing a post to all the followers is called fanout.
 New data might not be shown to the users until they issue a pull request, user request update. response would be empty if there is no update
 2. "Push" model or Fan-out-on-write
     long polling
+
+3. hybrid
+   1. celebrity only fan-out-write to those who are online. or who are also celebrity
+   2. user can just pull
+
+
+Feed Ranking
+    relevant
+    like
+    comments
+    with pic or video
+    interation between the uesrs
+
+
+
+data partition
+    1. metadata user post partition/sharding -> same as twitter
+    2. user newsFeed partition -> consitent hashing. since only 500 feeds. one user news feed can fit into a single server
+
+

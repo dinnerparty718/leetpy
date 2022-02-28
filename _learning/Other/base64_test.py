@@ -26,4 +26,48 @@ base64_bytes = base64.b64encode(message_bytes)
 # print(len(base64_bytes))
 # print(sys.getsizeof(message))
 
-print(base64_bytes)
+
+# https://stackoverflow.com/questions/561486/how-to-convert-an-integer-to-the-shortest-url-safe-string-in-python
+
+# print(base64_bytes)
+
+
+'''
+number to based64Encoding
+'''
+
+
+# num = 1_000_000
+
+# num_byte = bin(num)[2:]
+# print(num_byte)
+
+
+def make_encoder(baseString):
+    size = len(baseString)
+    d = dict((ch, i) for (i, ch) in enumerate(baseString))  # Map from char -> value
+    if len(d) != size:
+        raise Exception("Duplicate characters in encoding string")
+
+    def encode(x):
+        if x == 0:
+            return baseString[0]  # Only needed if don't want '' for 0
+        l = []
+        while x > 0:
+            l.append(baseString[x % size])
+            x //= size
+        return ''.join(l)
+
+    def decode(s):
+        return sum(d[ch] * size**i for (i, ch) in enumerate(s))
+
+    return encode, decode
+
+
+# Base 64 version:
+encode, decode = make_encoder("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
+
+assert decode(encode(435346456456)) == 435346456456
+
+
+print(decode(encode(435346456456)))

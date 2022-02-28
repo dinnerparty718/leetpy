@@ -4,7 +4,10 @@ Real-time Processing
     quick insights on small amount of data
 
 
-Lambda Architecture
+
+https://www.youtube.com/watch?v=ZhgSDOZpOQg
+
+Lambda Architecture (twitter used it)
     - batch layer
     - speed layer
     - serving layer
