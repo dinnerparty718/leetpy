@@ -36,9 +36,9 @@ class Solution:
 so = Solution()
 nums = [100, 4, 200, 1, 3, 2]
 
-nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+# nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
 
-nums = [1, 2, 0, 1]
+# nums = [1, 2, 0, 1]
 
 res = so.longestConsecutive(nums)
 print(res)

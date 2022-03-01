@@ -12,6 +12,7 @@ k:  num of face
 seen on rocket reach hacker rank questions
 p = numRollsToTarget / all_possible outcome ( k ** n)
 
+#! target sum
 
 
 # todo bottom up
@@ -20,15 +21,15 @@ p = numRollsToTarget / all_possible outcome ( k ** n)
 '''
 
 
+# class Solution:
+#     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
+#         dp = [[0] * (n + 1) for _ in range(1, target+2)]
+
+#         for row in dp:
+#             print(row)
+
+
 class Solution:
-    def numRollsToTarget(self, n: int, k: int, target: int) -> int:
-        dp = [[0] * (n + 1) for _ in range(1, target+2)]
-
-        for row in dp:
-            print(row)
-
-
-class Solution1:
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
 
         memo = {}
