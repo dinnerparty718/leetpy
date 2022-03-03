@@ -13,7 +13,7 @@
 
 
 
-## NearBy location service
+## NearBy locationn service
 
 
 
