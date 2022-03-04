@@ -9,9 +9,22 @@ class ListNode:
         self.next = next
 
 
+'''
+reverse both list
+build from end and append new node at the begining, and update ehad
+
+head = None
+node = ListNode()
+node.next = head
+head = node
+
+
+'''
+
 # leetcode
 #  1. reverse input
 #  2. construct output and put in the front
+
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:

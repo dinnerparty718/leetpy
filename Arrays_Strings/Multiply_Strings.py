@@ -3,6 +3,7 @@
 # time space O(M^2 + MN)
 
 # todo can be optimized to sum the result one by one
+# loop backwards. for i in range  max(n1,n2) - 1, -1, -1
 
 from itertools import zip_longest
 

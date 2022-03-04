@@ -1,6 +1,13 @@
 from typing import List
 
 
+'''
+three sum target 0
+
+
+
+'''
+
 # leetcode
 # outer loop + two sum
 

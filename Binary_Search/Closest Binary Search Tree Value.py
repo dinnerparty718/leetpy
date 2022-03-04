@@ -5,8 +5,25 @@
 #         self.left = left
 #         self.right = right
 from typing import Optional
-from Tree.TreeNode import TreeNode
+from tree.TreeNode import TreeNode
 from utils.buildTree import build
+
+
+# using BST tree recursion
+
+# time O(H) height of the tree
+# space O(1)
+
+
+class Solution:
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        closest = root.val
+        while root:
+            #! remember pattern
+            closest = min(root.val, closest, key=lambda x: abs(target - x))
+            root = root.left if target < root.val else root.right
+        return closest
+
 
 # own
 # recursive inorder + binary search
@@ -15,7 +32,7 @@ from utils.buildTree import build
 # space O(N) build the array
 
 
-class Solution:
+class Solution2:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
 
         res = []
@@ -53,7 +70,7 @@ class Solution:
 
 # leetcode interative traverse tree and find result
 # ! memorize inorder tree traversal iterative method
-class Solution:
+class Solution3:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
 
         pred = float('-inf')
@@ -74,21 +91,6 @@ class Solution:
             root = root.right
 
         return pred
-
-# using BST tree recursion
-
-# time O(H) height of the tree
-# space O(1)
-
-
-class Solution:
-    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        closest = root.val
-        while root:
-            #! remember pattern
-            closest = min(root.val, closest, key=lambda x: abs(target - x))
-            root = root.left if target < root.val else root.right
-        return closest
 
 
 so = Solution()

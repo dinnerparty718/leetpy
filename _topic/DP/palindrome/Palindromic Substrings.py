@@ -22,6 +22,21 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 # Space O(1)
 # expand from middle
 
+'''
+#! loop i
+    odd
+    l,r = i,i
+    even
+    l,r = i , i+1
+    
+    
+    
+    l -=1 
+    r+=1
+
+
+'''
+
 
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -46,6 +61,35 @@ class Solution:
                 r += 1
 
         return count
+
+
+'''
+
+dp = [ [False] * n for _ in range(n) ]
+global cnt = 0
+
+#! basecase
+    for i in range(n):
+        #! len == 1
+        dp[i][i] = True
+        cnt+=1
+
+#! recurrence
+
+    from left -> right , top -> down
+    
+    for right in range(n):
+        for left in range(right)
+            if right - left <=2   #! len 2 or len 3
+                dp[left][right] = s[left] == s[right]
+            else:
+                dp[left][right] =  s[right] == s[left] and dp[left + 1][right - 1]
+                
+            if dp[right][left]:
+                cnt+=1
+                
+#! return cnt
+'''
 
 
 # Time O(n^2)
@@ -75,6 +119,9 @@ class Solution:
 
                 if dp[left][right]:
                     cnt += 1
+
+        for row in dp:
+            print(row)
 
         return cnt
 

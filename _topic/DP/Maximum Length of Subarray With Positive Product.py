@@ -6,13 +6,43 @@ from typing import List
 
 https://leetcode.com/problems/maximum-product-subarray/
 
-curMin
-curMax
-
 
 
 
 https://www.youtube.com/watch?v=FqpfLr76a1k
+
+[1, -2, -3, 4]
+
+DP
+    pos_cnt = 0
+    neg_cnt = 0
+    global_max = 0
+
+#! recurrence
+    n = len(nums)
+    for i in range(n):
+        if nums[i] == 0:
+            pos_cnt = neg_cnt = 0
+            
+        elif nums[i] > 0:
+            pos_cnt+=1
+            
+            if neg_cnt !=0:
+                neg_cnt+=1
+            
+            update global_max
+            
+        else:
+            #! number < 0
+            pos_cnt, neg_cnt = neg_cnt , pos_nct
+            neg_cnt+=1
+            if pos_cnt !=0:
+                pos_cnt +=1
+            
+            update global_max
+
+#! return global_max
+
 '''
 
 # hard to understand but more efficient

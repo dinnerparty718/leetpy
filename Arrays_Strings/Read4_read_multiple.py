@@ -4,6 +4,11 @@
 from typing import List
 from collections import deque
 
+'''
+store remaning in queue
+
+'''
+
 
 class Solution:
 

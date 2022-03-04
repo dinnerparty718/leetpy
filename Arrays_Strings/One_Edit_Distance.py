@@ -1,5 +1,51 @@
 from collections import defaultdict
 
+'''
+
+#todo 
+one pass
+
+short, long
+
+loop through shorter one
+
+can skip
+delep
+
+
+
+
+'''
+
+
+class Solution2:
+    def isOneEditDistance(self, s: str, t: str) -> bool:
+        ns, nt = len(s), len(t)
+
+        # ensure s is shorter than t
+        # better than swap
+        if ns > nt:
+            return self.isOneEditDistance(t, s)
+
+        # more than one length diff
+        if nt - ns > 1:
+            return False
+
+        for i in range(ns):
+            if s[i] != t[i]:
+                if ns == nt:
+                    #! replace one
+                    return s[i+1:] == t[i+1:]
+                else:
+                    #! skip longer one
+                    return s[i:] == t[i+1:]
+
+        # 'ab'
+        # 'a'
+
+        return ns + 1 == nt
+
+
 # own solution
 
 
@@ -34,32 +80,6 @@ class Solution:
                 p1 += 1
                 p2 += 1
             return t[p2+1:] == s[p1:]
-
-
-class Solution2:
-    def isOneEditDistance(self, s: str, t: str) -> bool:
-        ns, nt = len(s), len(t)
-
-        # ensure s is shorter than t
-        # better than swap
-        if ns > nt:
-            return self.isOneEditDistance(t, s)
-
-        # more than one length diff
-        if nt - ns > 1:
-            return False
-
-        for i in range(ns):
-            if s[i] != t[i]:
-                if ns == nt:
-                    return s[i+1:] == t[i+1:]
-                else:
-                    return s[i:] == t[i+1:]
-
-        # 'ab'
-        # 'a'
-
-        return ns + 1 == nt
 
 
 so = Solution2()

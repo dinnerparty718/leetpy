@@ -6,6 +6,20 @@ from typing import List
 # binary search
 # O(logn)
 
+'''
+binary search
+
+l < r
+
+if mid < mid+1:
+    l = mid + 1
+else:
+    r = mid
+return r
+
+'''
+
+
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
         l, r = 0, len(arr)-1
@@ -13,6 +27,7 @@ class Solution:
         while l < r:
             mid = l + (r-l) // 2
 
+            #! safty can +1 since arr[mid] is not answer for sure
             if arr[mid] < arr[mid+1]:
                 l = mid+1
             else:
@@ -22,20 +37,6 @@ class Solution:
 
         # one pass method
         # o(n)
-
-
-class Solution1:
-    def peakIndexInMountainArray(self, arr: List[int]) -> int:
-        peak_idx = 0
-
-        if len(arr) == 1:
-            return 0
-
-        for i in range(len(arr)):
-            if arr[i] > arr[peak_idx]:
-                peak_idx = i
-
-        return peak_idx
 
 
 so = Solution()

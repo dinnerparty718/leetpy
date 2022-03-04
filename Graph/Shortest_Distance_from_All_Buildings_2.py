@@ -9,6 +9,63 @@ from collections import defaultdict
 
 # excee limit most of the time
 
+'''
+from all building. BFS to each empty land
+
+for each empty land. sum up the distanc is all reachable
+
+
+#! optimization
+    remove candidate land
+
+'''
+
+
+class Solution2:
+
+    def __init__(self) -> None:
+        self.empty, self.building = 0, 1
+
+    def shortestDistance(self, grid: List[List[int]]) -> int:
+        buildings = []
+        candidate_lands = {}  # { position, distance }
+
+        # 1. find all building and candidate empty lands
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                if grid[r][c] == self.building:
+                    buildings.append((r, c))
+                elif grid[r][c] == self.empty:
+                    candidate_lands[(r, c)] = 0
+
+        # 2. compute min distance from each buiding to all cadidate empty lands
+
+        for building_position in buildings:
+            self.bfs(candidate_lands, building_position)
+
+        return min(candidate_lands.values()) if buildings and candidate_lands else -1
+
+    def bfs(self, candidate_lands: dict, position):
+        distance = 0
+        visited = set()
+        q = deque([position])
+
+        while q:
+            distance += 1
+            size = len(q)
+            for _i in range(size):
+                i, j = q.popleft()
+                for I, J in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
+                    if (I, J) in candidate_lands and (I, J) not in visited:
+                        candidate_lands[(I, J)] += distance
+                        visited.add((I, J))
+                        q.append((I, J))
+
+        # optimized
+        if len(visited) != len(candidate_lands):
+            for position in set(candidate_lands.keys()).difference(visited):
+                candidate_lands.pop(position)
+
 
 class Solution:
     def shortestDistance(self, grid: List[List[int]]) -> int:
@@ -64,52 +121,6 @@ class Solution:
 
         # print(visit_count)
         return min_step if min_step != float('inf') else -1
-
-
-class Solution2:
-
-    def __init__(self) -> None:
-        self.empty, self.building = 0, 1
-
-    def shortestDistance(self, grid: List[List[int]]) -> int:
-        buildings = []
-        candidate_lands = {}  # { position, distance }
-
-        # 1. find all building and candidate empty lands
-        for r in range(len(grid)):
-            for c in range(len(grid[0])):
-                if grid[r][c] == self.building:
-                    buildings.append((r, c))
-                elif grid[r][c] == self.empty:
-                    candidate_lands[(r, c)] = 0
-
-        # 2. compute min distance from each buiding to all cadidate empty lands
-
-        for building_position in buildings:
-            self.bfs(candidate_lands, building_position)
-
-        return min(candidate_lands.values()) if buildings and candidate_lands else -1
-
-    def bfs(self, candidate_lands: dict, position):
-        distance = 0
-        visited = set()
-        q = deque([position])
-
-        while q:
-            distance += 1
-            size = len(q)
-            for _i in range(size):
-                i, j = q.popleft()
-                for I, J in (i+1, j), (i-1, j), (i, j+1), (i, j-1):
-                    if (I, J) in candidate_lands and (I, J) not in visited:
-                        candidate_lands[(I, J)] += distance
-                        visited.add((I, J))
-                        q.append((I, J))
-
-        # optimized
-        if len(visited) != len(candidate_lands):
-            for position in set(candidate_lands.keys()).difference(visited):
-                candidate_lands.pop(position)
 
 
 so = Solution()

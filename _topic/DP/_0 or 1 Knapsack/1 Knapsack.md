@@ -1,5 +1,8 @@
 ### 0/1 Kanpsack
 
+two states
+(i, target)
+
 
 ## target sum
 ## subset sum

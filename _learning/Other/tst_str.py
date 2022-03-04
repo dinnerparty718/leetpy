@@ -1,6 +1,19 @@
 # string
 # single or double quote
 # long str
+import sys
+
+string = 'hello'
+# 1-byte encoding
+print(sys.getsizeof(string+'!')-sys.getsizeof(string))
+# 2-byte encoding
+string2 = '你'
+print(sys.getsizeof(string2+'好')-sys.getsizeof(string2))
+
+
+# 4-byte encoding
+string3 = '🐍'
+print(sys.getsizeof(string3+'💻')-sys.getsizeof(string3))
 
 'hi hello'
 
@@ -29,7 +42,7 @@ print(', '.join((first_name, last_name)))
 # concatenation only works with strinig
 # print('hello' + 5) error
 
-print('hello' + str(5)) # type conversion
+print('hello' + str(5))  # type conversion
 
 # escape sequence
 
@@ -40,7 +53,7 @@ weather = 'it\'s \"kind of\" sunny'
 print(weather)
 
 print('\\')
-print('\tabc') # \t adding a tab
+print('\tabc')  # \t adding a tab
 print('\n')
 print('hope you have a good day')
 
@@ -50,13 +63,11 @@ print('hope you have a good day')
 name = 'Johnny'
 age = 45
 
-print('hi '+ name+ '. you are at '+ str(age)+ ' years old')
+print('hi ' + name + '. you are at ' + str(age) + ' years old')
 
 
-#prefer way similary to `` in javascript
+# prefer way similary to `` in javascript
 print(f'hi {name} is at {age} years old')
-
-
 
 
 # string index
@@ -76,9 +87,9 @@ print(selfish[1:])
 print(selfish[:3])
 print(selfish[:])
 
-print(selfish[-1]) # last item
+print(selfish[-1])  # last item
 
-print(selfish[::-1]) # reverse a string
+print(selfish[::-1])  # reverse a string
 
 
 # len
@@ -93,14 +104,14 @@ print(len(selfish))
 quote = 'to be or not bo be'
 
 print(quote.count('t'))
-print(quote.upper()) # lower
-print(quote.capitalize()) # capitalize the begining of the sentense
-print(quote.find('to')) # if == 0 start of the string
+print(quote.upper())  # lower
+print(quote.capitalize())  # capitalize the begining of the sentense
+print(quote.find('to'))  # if == 0 start of the string
 
 
-print(quote.replace('be','me'))
+print(quote.replace('be', 'me'))
 
-print(quote) # immutable
+print(quote)  # immutable
 
 
 words = quote.split(' ')

@@ -19,6 +19,35 @@ from functools import lru_cache
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         n = len(nums)
+        total = sum(nums)
+
+        if total % 2 == 1:
+            return False
+
+        target = sum(nums) // 2
+
+        # n-1 to 0
+
+        @lru_cache(maxsize=None)
+        def partition(i: int, target: int):
+            if i == 0:
+                return target == 0
+
+            if target < 0:
+                return False
+
+            #! use one line or for early return
+            return partition(i-1, target - nums[i]) or partition(i-1, target)
+
+        res = partition(n-1, target)
+        # print(memo)
+
+        return res
+
+
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
 
         memo = {}
 
@@ -47,35 +76,6 @@ class Solution:
             return memo[(i, curr_sum)]
 
         res = partition(0, 0)
-
-        return res
-
-
-class Solution:
-    def canPartition(self, nums: List[int]) -> bool:
-        n = len(nums)
-        total = sum(nums)
-
-        if total % 2 == 1:
-            return False
-
-        target = sum(nums) // 2
-
-        # n-1 to 0
-
-        @lru_cache(maxsize=None)
-        def partition(i: int, target: int):
-            if i == 0:
-                return target == 0
-
-            if target < 0:
-                return False
-
-            #! use one line or for early return
-            return partition(i-1, target - nums[i]) or partition(i-1, target)
-
-        res = partition(n-1, target)
-        # print(memo)
 
         return res
 
