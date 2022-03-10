@@ -1,8 +1,6 @@
 from typing import List
 
 
-# todo bit manipulation
-
 # array has hashset
 # own
 # Time O(n)
