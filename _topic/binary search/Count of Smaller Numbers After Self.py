@@ -1,36 +1,36 @@
-import bisect
 from typing import List
+from sortedcontainers import SortedList
 
+'''
+Brute Force
+O(n^2)
+for i in range(n):
+    for j in range(j+1,n):
 
-# exceed time limit
+https://www.youtube.com/watch?v=wWrprKyQmE4
 
-# https://leetcode.com/problems/count-of-smaller-numbers-after-self/solution/
-# todo
+BIT
+
+'''
+
 
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
-        n = len(nums)
+        s = SortedList()
+        output = []
 
-        if n < 2:
-            return [0]
+        for n in nums[::-1]:
+            ans = SortedList.bisect_left(s, n)
+            output.append(ans)
+            s.add(n)
 
-        count = [0] * n
-
-        sorted_nums = sorted(nums)
-
-        for i in range(n):
-            sorted_nums.remove(nums[i])
-            idx = bisect.bisect_left(sorted_nums, nums[i])
-
-            count[i] = idx
-
-        return count
+        return output[::-1]
 
 
 so = Solution()
 nums = [5, 2, 6, 1]
-nums = [-1]
-nums = [-1, -1]
+# nums = [-1]
+# nums = [-1, -1]
 res = so.countSmaller(nums)
 
 print(res)
