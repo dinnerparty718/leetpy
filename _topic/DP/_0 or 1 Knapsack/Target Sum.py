@@ -1,6 +1,34 @@
 from typing import List
 
 
+#! 1d rolling array 滚动数组
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+
+        total_sum = sum(nums)
+
+        if total_sum < target:
+            return 0
+
+        dp = [0] * (2 * total_sum + 1)
+        dp[total_sum] = 1
+
+        for num in nums:
+            tmp = [0] * (2 * total_sum + 1)
+            for j in range(num, 2 * total_sum + 1 - num):
+                if dp[j] > 0:
+                    tmp[j + num] += dp[j]
+                    tmp[j - num] += dp[j]
+
+            # tmp, dp = dp, tmp
+            dp, tmp = tmp, dp
+
+        return dp[target + total_sum]
+
+
+ƒ
+
+
 # hua hua
 # 2 D
 # https://www.youtube.com/watch?v=r6Wz4W1TbuI
@@ -103,31 +131,6 @@ class Solution:
                     dp[i][j+total_sum - nums[i]] += dp[i-1][total_sum+j]
 
         return dp[-1][total_sum + target]
-
-
-#! 1d rolling array 滚动数组
-class Solution:
-    def findTargetSumWays(self, nums: List[int], target: int) -> int:
-
-        total_sum = sum(nums)
-
-        if total_sum < target:
-            return 0
-
-        dp = [0] * (2 * total_sum + 1)
-        dp[total_sum] = 1
-
-        for num in nums:
-            tmp = [0] * (2 * total_sum + 1)
-            for j in range(num, 2 * total_sum + 1 - num):
-                if dp[j] > 0:
-                    tmp[j + num] += dp[j]
-                    tmp[j - num] += dp[j]
-
-            # tmp, dp = dp, tmp
-            dp, tmp = tmp, dp
-
-        return dp[target + total_sum]
 
 
 nums = [1, 1, 1, 1, 1]

@@ -1,3 +1,62 @@
+
+'''
+left_child_idx = 2*index + 1
+right_child_idx = 2*index + 2
+parenet_idx = (index - 1)//2
+
+def has_parent(self, index):
+    return parent_idx(index) >=0
+    
+def has_left_child(self,index):
+    return 2*index + 1 < self.size
+
+def has_right_child(self,index):
+    return 2*index + 2 < self.size
+
+def left_child(self,index):
+    if self.has_left_child(index):
+        return self.storage[2*index + 1]
+    else:
+        return None
+
+
+def right_child(self,index):
+    if self.has_right_child(index):
+        return self.storage[2*index + 2]
+    else:
+        return None
+
+def parent(self, index):
+    if self.has_parent(index):
+        return self.storage[(index-1)//2]
+    else:
+        return None
+        
+
+
+def heapifyUp(self, index):
+    while self.has_parent(index) and self.parent(index)>self.storage[index]:
+        swap(index, (index - 1)//2)
+        heapifyUp((index - 1)//2)
+        
+def heapifyDown(self, index):
+    if not self.has_left_child(index):
+        return
+        
+    smaller_idx = 2*index + 1
+    
+    if self.has_right_child(index) and self.right_child( 2*index + 2) < self.left_child 2*index + 1):
+        smaller_idx = 2*index + 2
+        
+    
+    if self.storage[smaller_idx] < self.storage[index]:
+        self.swap(index, smaller_idx)
+    
+    self.heapifyDown(smaller_idx)
+    
+'''
+
+
 class MinHeap:
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
