@@ -12,3 +12,9 @@ print(len(z))
 print(x >> 1)
 # x * 2 left shift
 print(x << 1)
+
+print('a' < 'b')
+print('a' < 'A')
+
+
+print(ord('a'), ord('A'))
