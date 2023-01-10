@@ -1,4 +1,3 @@
-from curses.ascii import SO
 from typing import List
 
 
