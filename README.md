@@ -1,4 +1,4 @@
 # create virtual evn
 
 python3 -m venv .
-source .venv/bin/activate
+`source .venv/bin/activate`
