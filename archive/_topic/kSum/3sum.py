@@ -42,7 +42,7 @@ class Solution:
                 res.append([nums[i], nums[lo], nums[hi]])
 
                 # ! continue to search for more answers
-                lo - +1
+                lo += 1
                 hi -= 1
 
                 while lo < hi and nums[lo] == nums[lo-1]:
