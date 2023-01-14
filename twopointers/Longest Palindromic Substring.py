@@ -24,9 +24,9 @@ class Solution:
         res = ''
         maxLen = 0
 
-        for i in range(n):
-            # odd
-            left, right = i, i
+        def find_palindrome_from(left, right):
+            nonlocal res
+            nonlocal maxLen
             while left >= 0 and right < n and s[left] == s[right]:
                 if right - left + 1 > maxLen:
                     maxLen = right - left + 1
@@ -34,14 +34,14 @@ class Solution:
                 left -= 1
                 right += 1
 
+        for i in range(n):
+            # odd
+            left, right = i, i
+            find_palindrome_from(left, right)
+
             # even
             left, right = i, i + 1
-            while left >= 0 and right < n and s[left] == s[right]:
-                if right - left + 1 > maxLen:
-                    maxLen = right - left + 1
-                    res = s[left:right + 1]
-                left -= 1
-                right += 1
+            find_palindrome_from(left, right)
 
         return res
 
