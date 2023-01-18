@@ -18,19 +18,22 @@ class Solution:
         i = 0
 
         while i < len(s):
+            if s[i] == ' ':
+                isntBegin = i != 0  # ! store the value first before increment i
+
+                while i < len(s) and s[i] == ' ':
+                    i += 1
+                if isntBegin and i < len(s):
+                    res += ' '
+
             while i < len(s) and s[i] != ' ':
                 res += s[i]
                 i += 1
 
-            if res and res[-1] != ' ':
-                print(i)
-                res += ' '
-            i += 1
-
         return res
 
 
-class Solution:
+class Solution2:
     """
     @param s: the original string
     @return: the string without arbitrary spaces
