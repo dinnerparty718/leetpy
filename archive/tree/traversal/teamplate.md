@@ -1,6 +1,6 @@
 # BFS (Breadth-First Search)
 
-按“层”在概念进行的搜索， 用queue记录需要被展开的treenote
+按“层”在概念进行的搜索, 用queue记录需要被展开的treenote
 
 
 ## BFS General Steps
@@ -16,7 +16,7 @@ each node in queue onnce O(n)
 
 
 # DFS (Depth-First Search)
-垂直概念，每个node visit三次
+垂直概念,每个node visit三次
 
 ## DFS
 1. Base Case
@@ -35,7 +35,7 @@ each node in queue onnce O(n)
 General Steps
 1. Base Case
 2. 利用父问题传下来的值做一些计算
-3. 若有必要，做一些额外操作
+3. 若有必要,做一些额外操作
 4. 把值传下去给子问题继续递归 
 
 
@@ -48,5 +48,5 @@ General Steps
 1. Base Case
 2. 向子问题要条案 (return value)
 3. 利用子问题的答案构建当前问题（当前递归层)的答案
-4. 若有必要，做一些额外操作
+4. 若有必要,做一些额外操作
 5. 返回答案(给父问题)

@@ -25,7 +25,7 @@
 
 ## BFS (Breadth-First Search)
 
-以层为概念的搜索方式，展开所有node,适合最短路径，图可能有玩，需要查重
+以层为概念的搜索方式,展开所有node,适合最短路径,图可能有玩,需要查重
 找最短路径只适用物uniform cost （每条edge的weight一样）
 
 
@@ -64,7 +64,7 @@ Dijsktra's Algorithm
 
 Time: O((E + V)logV)
 Space: O(V)
-每个Node可以被添加进heap多次，但只能被展开一次
+每个Node可以被添加进heap多次,但只能被展开一次
 
 #### build graph (or dict) using adjacent list
 d[src] = [dest,cost]

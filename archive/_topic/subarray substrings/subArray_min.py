@@ -38,7 +38,7 @@ def sumSubarrayMins(arr: list[int]):
 
     stack = []
 
-    # 约定， 5,5,5, 可以向左边扩展
+    # 约定, 5,5,5, 可以向左边扩展
     for i in reversed(range(n)):
         num = arr[i]
         while stack and arr[stack[-1]] >= num:

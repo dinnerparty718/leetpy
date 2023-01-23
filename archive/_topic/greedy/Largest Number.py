@@ -14,6 +14,6 @@ class Solution:
                 return 1
 
         nums = sorted(nums, key=cmp_to_key(compare))
-        # [0，0，0]
+        # [0,0,0]
 
         return str(int(''.join(nums)))

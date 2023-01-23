@@ -17,7 +17,7 @@
 
 # template 2
 # find first occurrence, or last occurrence
-# 模糊值 第一个2，最后一个2
+# 模糊值 第一个2,最后一个2
 # first occurence
 # while l < r
 # need to check l(r) value l = r after the while loop

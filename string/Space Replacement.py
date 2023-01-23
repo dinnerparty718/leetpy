@@ -9,7 +9,7 @@
  - 1 empty space -> 3 spaces =>  og len + n * 2
  - count how many empty spaces
  - looping backwards
- - 时间复杂度O(n)，空间复杂度O(1)
+ - 时间复杂度O(n),空间复杂度O(1)
 
 '''
 

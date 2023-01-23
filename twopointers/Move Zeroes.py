@@ -56,7 +56,7 @@ class Solution:
                 left += 1
             right += 1
 
-        # 若新数组指针还未指向尾部，将剩余数组赋值为0
+        # 若新数组指针还未指向尾部,将剩余数组赋值为0
         while left < len(nums):
             if nums[left] != 0:
                 nums[left] = 0
